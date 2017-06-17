@@ -1,4 +1,7 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, OnInit, Input } from '@angular/core';
+import { Observable } from 'rxjs/Observable';
+
+import { Hadis } from "../../_model/hadis";
 
 @Component({
   selector: 'kh-hadis-list',
@@ -6,9 +9,10 @@ import { Component, OnInit } from '@angular/core';
   styleUrls: ['./hadis-list.component.css']
 })
 export class HadisListComponent implements OnInit {
+  @Input() hadisler: Hadis[];
 
-  constructor() { }
-
+  constructor() {
+  }
   ngOnInit() {
   }
 

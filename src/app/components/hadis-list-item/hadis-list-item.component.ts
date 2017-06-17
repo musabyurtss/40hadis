@@ -1,4 +1,4 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, OnInit, Input } from '@angular/core';
 
 @Component({
   selector: 'kh-hadis-list-item',
@@ -6,6 +6,7 @@ import { Component, OnInit } from '@angular/core';
   styleUrls: ['./hadis-list-item.component.css']
 })
 export class HadisListItemComponent implements OnInit {
+  @Input() hadis;
 
   constructor() { }
 

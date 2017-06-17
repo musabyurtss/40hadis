@@ -1,4 +1,12 @@
 import { Component, OnInit } from '@angular/core';
+import { Observable } from 'rxjs/Observable';
+import { Store } from '@ngrx/store';
+
+import { Hadis } from '../../_model/hadis';
+
+interface AppState {
+  hadis: Hadis;
+}
 
 @Component({
   selector: 'app-list-page',
@@ -7,9 +15,12 @@ import { Component, OnInit } from '@angular/core';
 })
 export class ListPageComponent implements OnInit {
 
-  constructor() { }
+  hadisler$: Observable<Hadis[]>;
+
+  constructor(private _store: Store<AppState>) {}
 
   ngOnInit() {
+    this.hadisler$ = this._store.select('hadis');
   }
 
 }

@@ -2,9 +2,5 @@
   list-page works!
 </p>
 
-<kh-hadis-list>
-   <kh-hadis-list-item></kh-hadis-list-item>
-   <kh-hadis-list-item></kh-hadis-list-item>
-   <kh-hadis-list-item></kh-hadis-list-item>
-   <kh-hadis-list-item></kh-hadis-list-item>
-</kh-hadis-list>
+
+<kh-hadis-list [hadisler]="hadisler$ | async"> </kh-hadis-list>
