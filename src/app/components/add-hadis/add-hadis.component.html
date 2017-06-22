@@ -1,6 +1,12 @@
 <p>
   add-hadis works!
 </p>
-<input #hadisInput type="text">
 
-<button (click)="add(hadisInput)">Ekle</button>
+
+<form [formGroup]="createHadisForm" (ngSubmit)="createHadis($event)" >
+  <input name="title" formControlName="title" >
+  <textarea name="text" formControlName="text" ></textarea>
+  <button type="submit" >Ekle</button>
+</form>
+
+

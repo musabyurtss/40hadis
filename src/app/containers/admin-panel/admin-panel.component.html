@@ -4,6 +4,6 @@
 
 <app-add-hadis (addHadis)="addHadis($event)"></app-add-hadis>
 
-<kh-hadis-list [hadisler]="hadisler$ | async"> </kh-hadis-list>
-
-
+<ul>
+  <li *ngFor="let item of hadisler$ | async">{{item | json}} <button (click)="deleteHadis(item.id)">Delete</button></li>
+</ul>

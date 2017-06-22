@@ -15,7 +15,7 @@ import { AdminPanelComponent } from './containers/admin-panel/admin-panel.compon
 
 import { routes } from './app.routes';
 
-import { hadis } from './reducers/hadis';
+import {HadisReducer} from './reducers';
 
 @NgModule({
   declarations: [
@@ -32,7 +32,7 @@ import { hadis } from './reducers/hadis';
     // Components
     ComponentsModule,
     // Store
-    StoreModule.provideStore({hadis})
+    StoreModule.provideStore({HadisReducer})
   ],
   providers: [],
   bootstrap: [AppComponent]

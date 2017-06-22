@@ -1,18 +1,20 @@
 import { ActionReducer, Action } from '@ngrx/store';
 
-import {
-  ADD_HADIS,
-  REMOVE_HADIS
-} from '../actions/hadis';
+import * as hadisAction from '../actions/hadis';
+import { Hadis } from '../models/hadis';
 
-export const hadis = (state = [], action) => {
+export const HadisReducer: ActionReducer<Hadis[]> = (state: Hadis[] = [], action: hadisAction.Actions) => {
   switch (action.type) {
-    case ADD_HADIS:
-      return [
-        ...state,
-        Object.assign({}, { id: action.payload.id, baslik: action.payload.baslik, metin: action.payload.metin })
-      ];
-    case REMOVE_HADIS:
+
+    case hadisAction.CREATE_HADIS:
+      return [...state, action.payload];
+
+    case hadisAction.REMOVE_HADIS:
+      return state.filter((mState) => {
+        return mState.id !== action.payload.id;
+      });
+
+    default:
       return state;
   }
 };

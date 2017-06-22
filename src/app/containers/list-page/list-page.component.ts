@@ -2,7 +2,7 @@ import { Component, OnInit } from '@angular/core';
 import { Observable } from 'rxjs/Observable';
 import { Store } from '@ngrx/store';
 
-import { Hadis } from '../../_model/hadis';
+import { Hadis } from '../../models/hadis';
 
 interface AppState {
   hadis: Hadis;
@@ -20,7 +20,7 @@ export class ListPageComponent implements OnInit {
   constructor(private _store: Store<AppState>) {}
 
   ngOnInit() {
-    this.hadisler$ = this._store.select('hadis');
+    this.hadisler$ = this._store.select('HadisReducer');
   }
 
 }

@@ -1,4 +1,5 @@
 import { Component, OnInit, Output, EventEmitter } from '@angular/core';
+import { FormBuilder, Validators } from '@angular/forms';
 
 @Component({
   selector: 'app-add-hadis',
@@ -8,15 +9,22 @@ import { Component, OnInit, Output, EventEmitter } from '@angular/core';
 export class AddHadisComponent implements OnInit {
   @Output() addHadis = new EventEmitter();
 
-  constructor() { }
+  createHadisForm;
+
+  constructor(private fb: FormBuilder) {
+    this.createHadisForm = this.fb.group({
+      title: ['', Validators.required],
+      text: ['', Validators.required]
+    });
+  }
 
   ngOnInit() {
   }
 
-  add(hadisInput) {
-    // console.log(hadisInput.value);
-    this.addHadis.emit(hadisInput.value);
-    hadisInput.value = '';
+  createHadis(event) {
+    event.stopPropagation();
+    this.addHadis.emit(this.createHadisForm.value);
+    // hadisInput.value = '';
   }
 
 }

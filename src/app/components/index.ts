@@ -1,6 +1,6 @@
 import { NgModule } from '@angular/core';
 import { CommonModule } from '@angular/common';
-
+import { ReactiveFormsModule } from '@angular/forms';
 
 import { HadisListComponent } from './hadis-list/hadis-list.component';
 import { HadisListItemComponent } from './hadis-list-item/hadis-list-item.component';
@@ -20,7 +20,8 @@ export const COMPONENTS = [
 
 @NgModule({
   imports: [
-    CommonModule
+    CommonModule,
+    ReactiveFormsModule
   ],
   declarations: COMPONENTS,
   exports: COMPONENTS
