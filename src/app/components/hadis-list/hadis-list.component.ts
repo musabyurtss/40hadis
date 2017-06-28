@@ -1,7 +1,7 @@
 import { Component, OnInit, Input } from '@angular/core';
 import { Observable } from 'rxjs/Observable';
 
-import { Hadis } from "../../_model/hadis";
+import { Hadis } from '../../models/hadis';
 
 @Component({
   selector: 'kh-hadis-list',
@@ -9,7 +9,7 @@ import { Hadis } from "../../_model/hadis";
   styleUrls: ['./hadis-list.component.css']
 })
 export class HadisListComponent implements OnInit {
-  @Input() hadisler: Hadis[];
+  @Input() hadisler: Observable<Hadis[]>;
 
   constructor() {
   }

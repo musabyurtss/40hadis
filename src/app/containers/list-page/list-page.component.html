@@ -1,6 +1,8 @@
 <p>
-  list-page works!
+  list-page works!ss
 </p>
 
 
-<kh-hadis-list [hadisler]="hadisler$ | async"> </kh-hadis-list>
+<kh-hadis-list>
+  <kh-hadis-list-item *ngFor="let hadis of hadisler$ | async" [hadis]="hadis"></kh-hadis-list-item>
+</kh-hadis-list>

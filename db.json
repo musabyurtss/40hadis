@@ -1,0 +1,87 @@
+{
+  "hadis": [{
+      "id": "1",
+      "title": "baslik1",
+      "hadisInfo": {
+        "author": "Ayşe Şener"
+      }
+    },
+    {
+      "id": "2",
+      "title": "baslik2",
+      "hadisInfo": {
+        "author": "Ayşe Şener"
+      }
+    },
+    {
+      "id": "3",
+      "title": "baslik3",
+      "hadisInfo": {
+        "author": "Ayşe Şener"
+      }
+    },
+    {
+      "id": "4",
+      "title": "baslik4",
+      "hadisInfo": {
+        "author": "Ayşe Şener"
+      }
+    },
+    {
+      "id": "5",
+      "title": "baslik5",
+      "hadisInfo": {
+        "author": "Ayşe Şener"
+      }
+    },
+    {
+      "id": "6",
+      "title": "baslik6",
+      "hadisInfo": {
+        "author": "Ayşe Şener"
+      }
+    },
+    {
+      "id": "7",
+      "title": "baslik7",
+      "hadisInfo": {
+        "author": "Ayşe Şener"
+      }
+    },
+    {
+      "id": "8",
+      "title": "baslik8",
+      "hadisInfo": {
+        "author": "Ayşe Şener"
+      }
+    },
+    {
+      "id": "9",
+      "title": "baslik9",
+      "hadisInfo": {
+        "author": "Ayşe Şener"
+      }
+    },
+    {
+      "id": "10",
+      "title": "baslik10",
+      "hadisInfo": {
+        "author": "Ayşe Şener"
+      }
+    },
+    {
+      "id": "11",
+      "title": "baslik11",
+      "hadisInfo": {
+        "author": "Ayşe Şener"
+      }
+    },
+    {
+      "id": "12",
+      "title": "baslik12",
+      "hadisInfo": {
+        "author": "Ayşe Şener"
+      }
+    }
+  ]
+}
