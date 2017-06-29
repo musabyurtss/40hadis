@@ -11,7 +11,6 @@ Ben yine de yazdim asagiya.
 #!javascript
  AppComponent
        LayoutComponent
-        router-outlet (name="primary")
         ListPageComponent // Bu container component, icindekiler basit component
             HadisListComponent
         DetailViewComponent // Bu container component, icindekiler basit component
