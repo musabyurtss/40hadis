@@ -5,7 +5,7 @@
 2. `json-server --watch db.json` . (db.json u elle olusturdum.Root klasöründe)
 
 Bi de hangi componentin hangi component icinde oldugunu anlamak icin augury eklentisini yukle selman.
-
+Ben yine de yazdim asagiya.
  
 ```
 #!javascript
