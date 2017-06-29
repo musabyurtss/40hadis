@@ -6,11 +6,16 @@
 
 Bi de hangi componentin hangi component icinde oldugunu anlamak icin augury eklentisini yukle selman.
 
- `AppComponent
-    LayoutComponent
+ 
+```
+#!javascript
+ AppComponent
+       LayoutComponent
         router-outlet (name="primary")
-        ListPageComponent // Bu container component, altindakiler basit component
+        ListPageComponent // Bu container component, icindekiler basit component
             HadisListComponent
-        DetailViewComponent // Bu container component, altindakiler basit component
+        DetailViewComponent // Bu container component, icindekiler basit component
             HadisListItemComponent
-            HadisDetailComponent`
+            HadisDetailComponent
+
+```
