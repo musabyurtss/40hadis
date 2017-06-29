@@ -27,6 +27,10 @@ export class HadisDataService {
 
     getHadisById(id) {
 
+        const headerJson = new Headers({ 'Content-Type': 'application/json' });
+
+        return this.http.get(`${this.API_ROOT}/hadis/${id}`, { headers: headerJson })
+            .map((response: Response) => response.json())
     }
 
 }

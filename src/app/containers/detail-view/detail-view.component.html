@@ -1,7 +1,7 @@
-<p>
-  detail-view works!
-</p>
+<h3 *ngIf="loading$ | async">Loading</h3>
+<kh-hadis-list-item [hadis]="hadisItem$ | async"></kh-hadis-list-item>
 
-<kh-hadis-detail>
-  <kh-hadis-list-item></kh-hadis-list-item>
-</kh-hadis-detail>
+<kh-hadis-detail [hadis]="hadisItem$ | async"></kh-hadis-detail>
+
+
+<!-- Bu sayfada carousel veya baska bisey olabilir. Hadis navigasyonu icin.-->

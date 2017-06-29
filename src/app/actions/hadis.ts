@@ -8,6 +8,8 @@ export const FETCH_HADISS = 'FETCH_HADISS';
 export const FETCH_HADISS_SUCCES = 'FETCH_HADISS_SUCCES';
 export const FETCH_HADISS_FAIL = 'FETCH_HADISS_FAIL';
 
+
+
 // gets a list of hadis (init - success - fail)
 export class FetchHadissAction implements Action {
   readonly type = FETCH_HADISS;
@@ -24,5 +26,6 @@ export class FetchHadissFailAction implements Action {
 
   constructor(public payload: any) { }
 }
+
 
 export type Actions = FetchHadissAction | FetchHadissSuccessAction | FetchHadissFailAction;

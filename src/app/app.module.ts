@@ -42,6 +42,7 @@ import { reducer } from './reducers';
     StoreModule.provideStore(reducer),
     // Effects
     EffectsModule.run(HadisEffects),
+    // Development icin. Daha sonra kaldirilacak.
     StoreDevtoolsModule.instrumentOnlyWithExtension({
       maxAge: 5
     })
