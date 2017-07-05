@@ -1,0 +1,54 @@
+/*
+<button class="LoadButton" data--loading*="Yükleniyor..." disabled*="Son" hidden*>Daha fazla yükle</button>
+*/
+
+@import "../../../styles/variables.css";
+:host {
+  & .LoadButton {
+    border: 0;
+    display: block;
+    margin: 0 auto;
+    padding: calc(var(--DefaultPadding) / 2);
+    position: relative;
+    font-family: var(--DefaultFontFamily);
+    font-size: 1rem;
+    font-weight: 500;
+    user-select: none;
+    cursor: pointer;
+    background-color: var(--PrimaryBackgroundColor);
+    color: var(--DefaultColor);
+    box-shadow: 0 .1rem .3rem 0 var(--DefaultShadowColor);
+    transition: var(--TransitionDuration);
+    text-align: center;
+    &:hover {
+      box-shadow: 0 .1rem .3rem 0 var(--DefaultShadowColor), 0 .5rem 1.5rem 0 var(--DefaultShadowColor);
+    }
+    &:focus {
+      outline: none;
+      box-shadow: 0 .1rem .3rem 0 var(--DefaultShadowColor), 0 .5rem 1.5rem 0 var(--DefaultShadowColor);
+    }
+    &[hidden] {
+      display: none;
+    }
+    &[data--loading] {
+      font-size: 0;
+      pointer-events: none;
+      color: var(--SecondaryColor);
+      box-shadow: 0 .1rem .3rem 0 var(--DefaultShadowColor), 0 .5rem 1.5rem 0 var(--DefaultShadowColor);
+      &:before {
+        content: attr(data--loading);
+        font-size: 1rem;
+      }
+    }
+    &[disabled] {
+      font-size: 0;
+      pointer-events: none;
+      color: var(--SecondaryColor);
+      opacity: .75;
+      &:before {
+        content: attr(disabled);
+        font-size: 1rem;
+      }
+    }
+  }
+}

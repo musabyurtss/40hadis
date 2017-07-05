@@ -1,0 +1,8 @@
+<aside class="List">
+  <app-hadis-logo></app-hadis-logo>
+  <app-hadis-list-item *ngFor="let hadis of hadisler$ | async" [hadis]="hadis"></app-hadis-list-item>
+</aside>
+
+<div class="-block-centering -margin-top">
+  <app-load-button [status]="loading$ | async"></app-load-button>
+</div>

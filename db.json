@@ -1,98 +1,122 @@
 {
   "hadis": [{
       "id": "1",
-      "title": "baslik1",
-      "text": "Lorem ipsum dolor sit amet, consectetur adipisicing elit. Sequi nisi amet aspernatur consectetur assumenda minima recusandae quam cumque aliquam, officiis nesciunt explicabo. Tempora quod aliquid pariatur eos esse minus, vel.",
       "hadisInfo": {
-        "author": "Ayşe Şener"
+        "order": 1,
+        "title": "En hayırlınız, Kur'ân’ı öğrenen ve öğreteninizdir.",
+        "text": "Lorem ipsum dolor sit amet, consectetur adipisicing elit. Sequi nisi amet aspernatur consectetur assumenda minima recusandae quam cumque aliquam, officiis nesciunt explicabo. Tempora quod aliquid pariatur eos esse minus, vel.",
+        "author": "Tirmizî, Fadâilu’l-Kur’ân, 15",
+        "seen": true
       }
     },
     {
       "id": "2",
-      "title": "baslik2",
-      "text": "Lorem ipsum dolor sit amet, consectetur adipisicing elit. Sequi nisi amet aspernatur consectetur assumenda minima recusandae quam cumque aliquam, officiis nesciunt explicabo. Tempora quod aliquid pariatur eos esse minus, vel.",
       "hadisInfo": {
-        "author": "Ayşe Şener"
+        "order": 2,
+        "title": "En hayırlınız, Kur'ân’ı öğrenen ve öğreteninizdir.",
+        "text": "Lorem ipsum dolor sit amet, consectetur adipisicing elit. Sequi nisi amet aspernatur consectetur assumenda minima recusandae quam cumque aliquam, officiis nesciunt explicabo. Tempora quod aliquid pariatur eos esse minus, vel.",
+        "author": "Tirmizî, Fadâilu’l-Kur’ân, 15",
+        "seen": false
       }
     },
     {
       "id": "3",
-      "title": "baslik3",
-      "text": "Lorem ipsum dolor sit amet, consectetur adipisicing elit. Sequi nisi amet aspernatur consectetur assumenda minima recusandae quam cumque aliquam, officiis nesciunt explicabo. Tempora quod aliquid pariatur eos esse minus, vel.",
       "hadisInfo": {
-        "author": "Ayşe Şener"
+        "order": 3,
+        "title": "En hayırlınız, Kur'ân’ı öğrenen ve öğreteninizdir.",
+        "text": "Lorem ipsum dolor sit amet, consectetur adipisicing elit. Sequi nisi amet aspernatur consectetur assumenda minima recusandae quam cumque aliquam, officiis nesciunt explicabo. Tempora quod aliquid pariatur eos esse minus, vel.",
+        "author": "Tirmizî, Fadâilu’l-Kur’ân, 15",
+        "seen": true
       }
     },
     {
       "id": "4",
-      "title": "baslik4",
-      "text": "Lorem ipsum dolor sit amet, consectetur adipisicing elit. Sequi nisi amet aspernatur consectetur assumenda minima recusandae quam cumque aliquam, officiis nesciunt explicabo. Tempora quod aliquid pariatur eos esse minus, vel.",
       "hadisInfo": {
-        "author": "Ayşe Şener"
+        "order": 4,
+        "title": "En hayırlınız, Kur'ân’ı öğrenen ve öğreteninizdir.",
+        "text": "Lorem ipsum dolor sit amet, consectetur adipisicing elit. Sequi nisi amet aspernatur consectetur assumenda minima recusandae quam cumque aliquam, officiis nesciunt explicabo. Tempora quod aliquid pariatur eos esse minus, vel.",
+        "author": "Tirmizî, Fadâilu’l-Kur’ân, 15",
+        "seen": false
       }
     },
     {
       "id": "5",
-      "title": "baslik5",
-      "text": "Lorem ipsum dolor sit amet, consectetur adipisicing elit. Sequi nisi amet aspernatur consectetur assumenda minima recusandae quam cumque aliquam, officiis nesciunt explicabo. Tempora quod aliquid pariatur eos esse minus, vel.",
       "hadisInfo": {
-        "author": "Ayşe Şener"
+        "order": 5,
+        "title": "En hayırlınız, Kur'ân’ı öğrenen ve öğreteninizdir.",
+        "text": "Lorem ipsum dolor sit amet, consectetur adipisicing elit. Sequi nisi amet aspernatur consectetur assumenda minima recusandae quam cumque aliquam, officiis nesciunt explicabo. Tempora quod aliquid pariatur eos esse minus, vel.",
+        "author": "Tirmizî, Fadâilu’l-Kur’ân, 15",
+        "seen": false
       }
     },
     {
       "id": "6",
-      "title": "baslik6",
-      "text": "Lorem ipsum dolor sit amet, consectetur adipisicing elit. Sequi nisi amet aspernatur consectetur assumenda minima recusandae quam cumque aliquam, officiis nesciunt explicabo. Tempora quod aliquid pariatur eos esse minus, vel.",
       "hadisInfo": {
-        "author": "Ayşe Şener"
+        "order": 6,
+        "title": "En hayırlınız, Kur'ân’ı öğrenen ve öğreteninizdir.",
+        "text": "Lorem ipsum dolor sit amet, consectetur adipisicing elit. Sequi nisi amet aspernatur consectetur assumenda minima recusandae quam cumque aliquam, officiis nesciunt explicabo. Tempora quod aliquid pariatur eos esse minus, vel.",
+        "author": "Tirmizî, Fadâilu’l-Kur’ân, 15",
+        "seen": false
       }
     },
     {
       "id": "7",
-      "title": "baslik7",
-      "text": "Lorem ipsum dolor sit amet, consectetur adipisicing elit. Sequi nisi amet aspernatur consectetur assumenda minima recusandae quam cumque aliquam, officiis nesciunt explicabo. Tempora quod aliquid pariatur eos esse minus, vel.",
       "hadisInfo": {
-        "author": "Ayşe Şener"
+        "order": 7,
+        "title": "En hayırlınız, Kur'ân’ı öğrenen ve öğreteninizdir.",
+        "text": "Lorem ipsum dolor sit amet, consectetur adipisicing elit. Sequi nisi amet aspernatur consectetur assumenda minima recusandae quam cumque aliquam, officiis nesciunt explicabo. Tempora quod aliquid pariatur eos esse minus, vel.",
+        "author": "Tirmizî, Fadâilu’l-Kur’ân, 15",
+        "seen": false
       }
     },
     {
       "id": "8",
-      "title": "baslik8",
-      "text": "Lorem ipsum dolor sit amet, consectetur adipisicing elit. Sequi nisi amet aspernatur consectetur assumenda minima recusandae quam cumque aliquam, officiis nesciunt explicabo. Tempora quod aliquid pariatur eos esse minus, vel.",
       "hadisInfo": {
-        "author": "Ayşe Şener"
+        "order": 8,
+        "title": "En hayırlınız, Kur'ân’ı öğrenen ve öğreteninizdir.",
+        "text": "Lorem ipsum dolor sit amet, consectetur adipisicing elit. Sequi nisi amet aspernatur consectetur assumenda minima recusandae quam cumque aliquam, officiis nesciunt explicabo. Tempora quod aliquid pariatur eos esse minus, vel.",
+        "author": "Tirmizî, Fadâilu’l-Kur’ân, 15",
+        "seen": false
       }
     },
     {
       "id": "9",
-      "title": "baslik9",
-      "text": "Lorem ipsum dolor sit amet, consectetur adipisicing elit. Sequi nisi amet aspernatur consectetur assumenda minima recusandae quam cumque aliquam, officiis nesciunt explicabo. Tempora quod aliquid pariatur eos esse minus, vel.",
       "hadisInfo": {
-        "author": "Ayşe Şener"
+        "order": 9,
+        "title": "En hayırlınız, Kur'ân’ı öğrenen ve öğreteninizdir.",
+        "text": "Lorem ipsum dolor sit amet, consectetur adipisicing elit. Sequi nisi amet aspernatur consectetur assumenda minima recusandae quam cumque aliquam, officiis nesciunt explicabo. Tempora quod aliquid pariatur eos esse minus, vel.",
+        "author": "Tirmizî, Fadâilu’l-Kur’ân, 15",
+        "seen": false
       }
     },
     {
       "id": "10",
-      "title": "baslik10",
-      "text": "Lorem ipsum dolor sit amet, consectetur adipisicing elit. Sequi nisi amet aspernatur consectetur assumenda minima recusandae quam cumque aliquam, officiis nesciunt explicabo. Tempora quod aliquid pariatur eos esse minus, vel.",
       "hadisInfo": {
-        "author": "Ayşe Şener"
+        "order": 10,
+        "title": "En hayırlınız, Kur'ân’ı öğrenen ve öğreteninizdir.",
+        "text": "Lorem ipsum dolor sit amet, consectetur adipisicing elit. Sequi nisi amet aspernatur consectetur assumenda minima recusandae quam cumque aliquam, officiis nesciunt explicabo. Tempora quod aliquid pariatur eos esse minus, vel.",
+        "author": "Tirmizî, Fadâilu’l-Kur’ân, 15",
+        "seen": false
       }
     },
     {
       "id": "11",
-      "title": "baslik11",
-      "text": "Lorem ipsum dolor sit amet, consectetur adipisicing elit. Sequi nisi amet aspernatur consectetur assumenda minima recusandae quam cumque aliquam, officiis nesciunt explicabo. Tempora quod aliquid pariatur eos esse minus, vel.",
       "hadisInfo": {
-        "author": "Ayşe Şener"
+        "order": 11,
+        "title": "En hayırlınız, Kur'ân’ı öğrenen ve öğreteninizdir.",
+        "text": "Lorem ipsum dolor sit amet, consectetur adipisicing elit. Sequi nisi amet aspernatur consectetur assumenda minima recusandae quam cumque aliquam, officiis nesciunt explicabo. Tempora quod aliquid pariatur eos esse minus, vel.",
+        "author": "Tirmizî, Fadâilu’l-Kur’ân, 15",
+        "seen": false
       }
     },
     {
       "id": "12",
-      "title": "baslik12",
-      "text": "Lorem ipsum dolor sit amet, consectetur adipisicing elit. Sequi nisi amet aspernatur consectetur assumenda minima recusandae quam cumque aliquam, officiis nesciunt explicabo. Tempora quod aliquid pariatur eos esse minus, vel.",
       "hadisInfo": {
-        "author": "Ayşe Şener"
+        "order": 12,
+        "title": "En hayırlınız, Kur'ân’ı öğrenen ve öğreteninizdir.",
+        "text": "Lorem ipsum dolor sit amet, consectetur adipisicing elit. Sequi nisi amet aspernatur consectetur assumenda minima recusandae quam cumque aliquam, officiis nesciunt explicabo. Tempora quod aliquid pariatur eos esse minus, vel.",
+        "author": "Tirmizî, Fadâilu’l-Kur’ân, 15",
+        "seen": false
       }
     }
   ]

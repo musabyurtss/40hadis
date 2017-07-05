@@ -1,0 +1,326 @@
+/*
+<input type="checkbox" id="Navigation__STATE">
+<nav class="Navigation">
+  <div class="_Related" data---navigationitem>
+    <app-hadis-list-item data---navigationitem [hadis]="prevHadis"></app-hadis-list-item>
+    <app-hadis-list-item data---navigationitem [hadis]="nextHadis"></app-hadis-list-item>
+  </div>
+  <div class="_Logo">
+    <div class="_Title">40</div>
+    <div class="_Subtitle">hadis</div>
+    <div class="_Link"><a [routerLink]="['/']">← Ana sayfa'ya dön</a></div>
+  </div>
+  <label for="Navigation__STATE">
+    <div class="_Text">Menü</div>
+    <div class="_Icon __Active"></div>
+</label>
+</nav>
+*/
+
+@import "../../../styles/variables.css";
+@import "../../../styles/applies.css";
+:host {
+  & input[type=checkbox]#Navigation__STATE {
+    display: block;
+    width: 0.1px;
+    height: 0.1px;
+    position: absolute;
+    z-index: -1;
+    opacity: 0;
+    overflow: hidden;
+    visibility: hidden;
+    &:checked {
+      &~.Navigation {
+        margin-top: 0rem;
+        transition-delay: 0s;
+        & [data---navigationitem]>[data---navigationitem] {
+          &>>>>* {
+            visibility: visible;
+            opacity: 1;
+          }
+          &:nth-last-child(2):first-child,
+          &:nth-last-child(2):first-child~[data---navigationitem] {
+            &:first-child>>>>* {
+              transition-delay: .25s;
+              transform: translateX(-100%) scale(1);
+            }
+            &:last-child>>>>* {
+              transition-delay: .35s;
+              transform: translateX(100%) scale(1);
+            }
+          }
+        }
+        &>._Logo {
+          &>* {
+            opacity: 1;
+            visibility: visible;
+            transform: translateY(0);
+            &._Title {
+              transition-delay: .6s;
+            }
+            &._Subtitle {
+              transition-delay: .5s;
+            }
+            &._Link {
+              transition-delay: .4s;
+            }
+          }
+        }
+        &>label[for="Navigation__STATE"] {
+          color: var(--DefaultColor);
+          &>._Icon {
+            &:before {
+              transform: rotate(-45deg);
+            }
+            &:after {
+              transform: rotate(225deg);
+            }
+          }
+        }
+      }
+    }
+  }
+  & .Navigation {
+    display: block;
+    width: var(--Card-Width);
+    height: var(--Card-Height);
+    margin: calc(var(--DefaultMargin) * 5) auto;
+    margin-top: calc((var(--Card-Height) + var(--DefaultMargin) * 5) * -1 + (5rem - 2rem));
+    position: relative;
+    transition: .25s .4s ease;
+    &>._Logo,
+    &>._Related {
+      width: 100%;
+      height: 100%;
+      position: absolute;
+      top: 0;
+      left: 0;
+    }
+    &>._Related[data---navigationitem] {
+      height: 0;
+      z-index: 0;
+      list-style: none;
+      margin: 0;
+      padding: 0;
+      &>[data---navigationitem] {
+        &>>>>* {
+          display: none;
+          margin: 0;
+          padding: 0;
+          float: none;
+          position: absolute;
+          top: 0;
+          left: 0;
+          visibility: hidden;
+          opacity: 0;
+          transition-duration: .15s;
+        }
+        &:nth-last-child(2):first-child,
+        &:nth-last-child(2):first-child~[data---navigationitem] {
+          &>>>>* {
+            display: block;
+            &:before {
+              content: "Sıradakiler";
+              width: 100%;
+              position: absolute;
+              top: calc(var(--DefaultPadding) * 1.5 * -1);
+              left: 0;
+              color: var(--SecondaryColor);
+              font-size: .75rem;
+              font-weight: 600;
+              text-transform: uppercase;
+              pointer-events: none;
+              transition: .25s;
+            }
+          }
+          &:first-child>>>>* {
+            margin-left: calc(var(--DefaultPadding) * -1);
+            transform: translateX(-90%) scale(.95);
+            &:before {
+              content: "← Önceki Hadis";
+              text-align: left;
+            }
+          }
+          &:last-child>>>>* {
+            transition-delay: .1s;
+            margin-left: var(--DefaultPadding);
+            transform: translateX(90%) scale(.95);
+            &:before {
+              content: "Sonraki Hadis →";
+              text-align: right;
+            }
+          }
+        }
+      }
+      /*(3 Card genişliği) ((11.25rem + 1rem * 2) * 2) == calc((var(--Card-Width) + var(--DefaultMargin) * 2) * 2)*/
+      @media screen and (width <=35.75rem) {
+        & {
+          z-index: 3;
+          &>[data---navigationitem] {
+            &>>>:not(._Default),
+            &>>>>*:before,
+            &>>>>*:after {
+              visibility: hidden;
+              opacity: 0;
+            }
+            &>>>._Default {
+              background: none;
+              box-shadow: none;
+              transition: none;
+              pointer-events: none;
+              transform: translateX(0);
+              visibility: visible;
+              opacity: 1 !important;
+              &>* {
+                display: none;
+              }
+              &:after {
+                width: calc(var(--DefaultPadding) * 1.6);
+                height: calc(var(--DefaultPadding) * 1.6);
+                padding: 0 .75rem;
+                position: absolute;
+                bottom: var(--DefaultPadding);
+                z-index: 5;
+                line-height: calc(var(--DefaultPadding) * 1.6);
+                font-size: .75rem;
+                font-weight: 600;
+                text-transform: uppercase;
+                text-align: center;
+                white-space: nowrap;
+                cursor: pointer;
+                background-color: var(--SecondaryBackgroundColor);
+                box-shadow: 0 .1rem .3rem 0 var(--DefaultShadowColor);
+                pointer-events: initial;
+              }
+            }
+            &:first-child>>>._Default {
+              &:after {
+                content: "←";
+                left: 100%;
+                transform: translateX(calc(var(--DefaultPadding) + (var(--DefaultPadding) * -.75)));
+              }
+              &:hover:after {
+                content: "← Önceki";
+                width: auto;
+              }
+            }
+            &:last-child>>>._Default {
+              &:after {
+                content: "→";
+                right: 100%;
+                transform: translateX(calc((var(--DefaultPadding)* -1) + (var(--DefaultPadding) * .75)));
+              }
+              &:hover:after {
+                content: "Sonraki →";
+                width: auto;
+              }
+            }
+          }
+        }
+      }
+    }
+    &>._Logo {
+      z-index: 1;
+      padding: var(--DefaultPadding);
+      background-color: var(--PrimaryBackgroundColor);
+      color: var(--DefaultColor);
+      box-shadow: 0 .1rem .3rem 0 var(--DefaultShadowColor);
+      font-weight: 500;
+      text-align: center;
+      user-select: none;
+      cursor: default;
+      &>._Title,
+      &>._Subtitle,
+      &>._Link {
+        opacity: 0;
+        visibility: 0;
+        transition-duration: .25s;
+      }
+      &>._Title {
+        font-family: var(--SerifFontFamily);
+        font-size: 5rem;
+        font-weight: 900;
+        transition-delay: .0s;
+        transform: translateY(-10%);
+      }
+      &>._Subtitle {
+        margin-bottom: 2.25rem;
+        font-family: var(--SerifFontFamily);
+        font-size: 1.15rem;
+        color: var(--SecondaryColor);
+        transition-delay: .05s;
+        transform: translateY(-50%);
+      }
+      &>._Link {
+        font-size: .8rem;
+        color: color(var(--SecondaryColor) a(75%));
+        transition-delay: .1s;
+        transform: translateY(-70%);
+        &>a[href] {
+          @apply --TextUnderlineHover;
+          &:hover {
+            color: var(--SecondaryColor);
+          }
+        }
+      }
+    }
+    &>label[for="Navigation__STATE"] {
+      width: 100%;
+      height: 5rem;
+      position: absolute;
+      left: 0;
+      bottom: -2rem;
+      z-index: 2;
+      cursor: pointer;
+      user-select: none;
+      pointer-events: none;
+      color: var(--SecondaryColor);
+      &:hover {
+        color: var(--DefaultColor);
+      }
+      &>._Text,
+      &>._Icon {
+        display: block;
+        position: absolute;
+        pointer-events: initial;
+      }
+      &>._Text {
+        width: 100%;
+        height: 3rem;
+        top: 0;
+        line-height: 3rem;
+        font-size: .75rem;
+        font-family: var(--SerifFontFamily);
+        font-weight: 900;
+        letter-spacing: .25rem;
+        text-align: center;
+      }
+      &>._Icon {
+        width: 1.5rem;
+        height: 2rem;
+        bottom: 0;
+        left: 50%;
+        transform: translateX(-50%);
+        &:before,
+        &:after {
+          content: "";
+          width: 50%;
+          height: .125rem;
+          position: absolute;
+          top: 65%;
+          background-color: currentColor;
+          box-shadow: .0625rem 0 0 0 currentColor;
+          border-radius: .1875rem;
+          transform-origin: center right;
+          transition: transform .25s;
+        }
+        &:before {
+          transform: rotate(45deg);
+        }
+        &:after {
+          transform: rotate(135deg);
+        }
+      }
+    }
+  }
+}

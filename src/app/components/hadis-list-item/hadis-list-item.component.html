@@ -1,1 +1,22 @@
-<h4>Hadis Id: {{ hadis?.id}} -- Hadis Title: {{ hadis?.title}}</h4>
+<div class="Card" [attr.data--wasread]="hadis?.hadisInfo?.seen ? '' : null" [attr.data--indetail]="layoutType==='DetailItem' ? 'Şuan okunan hadis' : null">
+  <input type="checkbox" id="label_{{hadis?.id}}">
+  <!--<a [routerLink]="['/hadis', hadis?.id]" class="_Default">-->
+  <a routerLink="/hadis/{{hadis?.id}}" class="_Default">
+    <h1 class="_Title">{{hadis?.hadisInfo?.title}}</h1>
+    <div class="_Subtitle">{{hadis?.hadisInfo?.author}}</div>
+    <div class="_DownSide" data-wasread="Okundu">
+      <div class="_Order">{{(hadis?.hadisInfo?.order >= 1 && hadis?.hadisInfo?.order
+        < 10) ? + '0'+ hadis?.hadisInfo?.order : hadis?.hadisInfo?.order}} </div>
+      </div>
+  </a>
+  <div class="_Background"></div>
+  <div class="_Share" data-info="Paylaş">
+    <ul class="_List">
+      <li class="_Item __facebook"><a href="https://www.facebook.com/sharer/sharer.php?u={{url}}">Facebook</a></li>
+      <li class="_Item __twitter"><a href="https://twitter.com/intent/tweet/?url={{url}}&text={{hadis?.hadisInfo?.title}} - {{hadis?.hadisInfo?.author}}">Twitter</a></li>
+      <li class="_Item __google"><a href="https://plus.google.com/share?url={{url}}">Google +</a></li>
+      <li class="_Item __email"><a href="mailto:?subject={{hadis?.hadisInfo?.title}}&body={{hadis?.hadisInfo?.text}} -{{hadis?.hadisInfo?.author}}">Eposta</a></li>
+    </ul>
+  </div>
+  <label class="_Button" for="label_{{hadis?.id}}" data-active="Geri">Paylaş</label>
+  </div>

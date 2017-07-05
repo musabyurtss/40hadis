@@ -1,7 +1,6 @@
 import { Routes } from '@angular/router';
-
-import { ListPageComponent } from './containers/list-page/list-page.component';
-import { DetailViewComponent } from './containers/detail-view/detail-view.component';
+import { MainPageComponent } from './containers/main-page/main-page.component';
+import { DetailViewComponent, DetailViewResolver } from './containers/detail-view/detail-view.component';
 import { AdminPanelComponent } from './containers/admin-panel/admin-panel.component';
 
 
@@ -15,11 +14,14 @@ export const adminRoutes: Routes = [
 export const routes: Routes = [
   {
     path: 'hadis',
-    component: ListPageComponent
+    component: MainPageComponent
   },
   {
     path: 'hadis/:id',
-    component: DetailViewComponent
+    component: DetailViewComponent,
+    resolve: {
+      hadis: DetailViewResolver
+    }
   },
   {
     path: '',
@@ -28,6 +30,8 @@ export const routes: Routes = [
   },
   ...adminRoutes,
   {
-    path: '**', component: ListPageComponent
+    path: '**', component: MainPageComponent
   }
 ];
+
+export const RESOLVERS = [DetailViewResolver];

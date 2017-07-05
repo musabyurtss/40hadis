@@ -1,0 +1,35 @@
+    html {
+      background-color: var(--DefaultBackgroundColor);
+      color: var(--DefaultColor);
+      font-family: var(--DefaultFontFamily);
+      font-size: 16px;
+      line-height: normal;
+      -webkit-font-smoothing: antialiased;
+      -moz-osx-font-smoothing: grayscale;
+      text-rendering: optimizeLegibility;
+      box-sizing: border-box;
+    }
+
+    body {
+      margin: 0;
+      overflow-x: hidden;
+      overflow-y: scroll; // font-size: responsive;
+    }
+
+    *,
+    *:before,
+    *:after {
+      box-sizing: inherit;
+    }
+
+    a[href] {
+      text-decoration: none;
+      color: currentColor; // box-shadow: 0 -1px 0 currentColor inset;
+      &:visited {
+        color: currentColor;
+      }
+      &:before,
+      &:after {
+        text-shadow: none;
+      }
+    }

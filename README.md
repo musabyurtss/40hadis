@@ -18,3 +18,5 @@ Ben yine de yazdim asagiya.
             HadisDetailComponent
 
 ```
+
+ `npm i -D postcss-css-variables postcss-custom-properties postcss-apply postcss-calc postcss-nesting postcss-custom-media postcss-media-minmax postcss-custom-selectors postcss-attribute-case-insensitive postcss-color-rebeccapurple postcss-color-hwb postcss-color-gray postcss-color-hex-alpha postcss-color-function postcss-font-family-system-ui postcss-font-variant pleeease-filters postcss-initial postcss-selector-matches postcss-selector-not postcss-pseudo-class-any-link rucksack-css pixrem autoprefixer postcss-browser-reporter cssnano postcss-normalize postcss-import postcss-url`

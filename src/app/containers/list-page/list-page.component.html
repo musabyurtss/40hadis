@@ -1,4 +1,0 @@
-<kh-hadis-list>
-  <h3 *ngIf="loading$ | async">Loading</h3>
-  <kh-hadis-list-item *ngFor="let hadis of hadisler$ | async" [hadis]="hadis" (click)="hadiseGit(hadis.id)"></kh-hadis-list-item>
-</kh-hadis-list>

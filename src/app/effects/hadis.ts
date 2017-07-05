@@ -30,6 +30,7 @@ export class HadisEffects {
         // .startWith(new hadisActions.FetchHadissAction())
         .switchMap(() =>
             this.hDataService.getHadiss()
+
                 .map((hadiss: Hadis[]) => new hadisActions.FetchHadissSuccessAction(hadiss))
                 .catch(error => of(new hadisActions.FetchHadissFailAction(error)))
         )

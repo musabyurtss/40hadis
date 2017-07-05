@@ -1,7 +1,10 @@
-<h3 *ngIf="loading$ | async">Loading</h3>
-<kh-hadis-list-item [hadis]="hadisItem$ | async"></kh-hadis-list-item>
+<!--<h3 *ngIf="loading$ | async">Loading</h3>-->
 
-<kh-hadis-detail [hadis]="hadisItem$ | async"></kh-hadis-detail>
+<app-navigation [prevHadis]="hadis" [nextHadis]="hadis"></app-navigation>
 
+<article class="Article">
+  <app-hadis-list-item [hadis]="hadis" [layoutType]="'DetailItem'"></app-hadis-list-item>
+  <aside class="Content" #contenthtml></aside>
+</article>
 
-<!-- Bu sayfada carousel veya baska bisey olabilir. Hadis navigasyonu icin.-->
+<app-footer></app-footer>

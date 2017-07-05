@@ -1,16 +1,23 @@
 import { Component, OnInit, Input } from '@angular/core';
 
+import { Hadis } from './../../models/hadis';
+
 @Component({
-  selector: 'kh-hadis-list-item',
+  selector: 'app-hadis-list-item',
   templateUrl: './hadis-list-item.component.html',
   styleUrls: ['./hadis-list-item.component.css']
 })
 export class HadisListItemComponent implements OnInit {
-  @Input() hadis;
+
+  @Input()
+  layoutType: string; // ListItem | DetailItem
+
+  @Input() hadis: Hadis;
+
+  url: string = 'paylaşmak için sayfa urlsi';
 
   constructor() { }
 
-  ngOnInit() {
-  }
+  ngOnInit() { }
 
 }

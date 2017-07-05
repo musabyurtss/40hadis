@@ -1,0 +1,25 @@
+/*
+<section id="..." class="Page">
+    <main class="_Layout"></main>
+</section>
+  */
+
+@import "../styles/variables.css";
+:host {
+  & .Page {
+    /*background-image'i inline style olarak html de yada sayfaya özel css dosyasında ver.*/
+    position: relative;
+    background-repeat: no-repeat;
+    background-size: contain;
+    background-position: center;
+    background-attachment: fixed;
+    &>._Layout {
+      width: 100%;
+      max-width: calc((var(--Card-Width) + var(--DefaultMargin) * 2) * 3);
+      min-width: calc(var(--Card-Width) + var(--DefaultMargin) * 2);
+      margin: 0 auto;
+      padding: calc(var(--DefaultMargin) * (3 + 2)) 0;
+      position: relative;
+    }
+  }
+}

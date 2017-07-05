@@ -1,0 +1,23 @@
+/*
+<footer id="Footer">
+    <p>...</p>
+</footer>
+*/
+
+@import "../../../styles/variables.css";
+@import "../../../styles/applies.css";
+:host {
+  & #Footer {
+    margin: calc(var(--DefaultMargin) * 4) calc(var(--DefaultPadding) * 1.5 + 1rem) 0 calc(var(--DefaultPadding) * 1.5 + 1rem);
+    color: var(--SecondaryColor);
+    font-size: 1rem;
+    line-height: 1.35em;
+    text-align: center;
+    & a[href]:not([title], [id]) {
+      @apply --TextUnderlineHover;
+    }
+    & * {
+      margin: 0;
+    }
+  }
+}

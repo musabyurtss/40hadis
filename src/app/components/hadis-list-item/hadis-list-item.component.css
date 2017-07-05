@@ -1,0 +1,258 @@
+/*
+<div class="Card" data--wasread data--indetail="Şuan okunan hadis">
+  <input type="checkbox" id="01">
+  <a href="#url" class="_Default">
+    <h1 class="_Title">En hayırlınız, Kur'ân’ı öğrenen ve öğreteninizdir.</h1>
+    <div class="_Subtitle">Tirmizî, Fadâilu’l-Kur’ân, 15</div>
+    <div class="_DownSide" data-wasread="Okundu">
+      <div class="_Order">01</div>
+    </div>
+  </a>
+  <div class="_Background"></div>
+  <div class="_Share" data-info="Paylaş">
+    <ul class="_List">
+      <li class="_Item __facebook"><a href="#d1">Facebook</a></li>
+      <li class="_Item __twitter"><a href="#d2">Twitter</a></li>
+      <li class="_Item __google"><a href="#d3">Google +</a></li>
+      <li class="_Item __email"><a href="#d4">Eposta</a></li>
+    </ul>
+  </div>
+  <label class="_Button" for="01" data-active="Geri">Paylaş</label>
+</div>
+*/
+
+@import "../../../styles/variables.css";
+@import "../../../styles/applies.css";
+:host {
+  & .Card {
+    width: var(--Card-Width);
+    height: var(--Card-Height);
+    position: relative;
+    user-select: none;
+    color: var(--DefaultColor);
+    transition: var(--TransitionDuration);
+    margin: calc(var(--DefaultPadding) * 2);
+    font-size: 1rem;
+    font-weight: 500;
+    text-align: left;
+    white-space: normal;
+    &[data--indetail] {
+      margin: calc(var(--DefaultPadding) * 1.5);
+      margin-left: calc(var(--DefaultPadding) * -1.5);
+      float: left;
+      &:before {
+        content: attr(data--indetail);
+        position: absolute;
+        top: calc(var(--DefaultPadding) * 1.5 * -1);
+        left: 0;
+        color: var(--SecondaryColor);
+        font-size: .75rem;
+        font-weight: 600;
+        text-transform: uppercase;
+      }
+      /*(2 Card genişliği) ((11.25rem + 1rem * 2) * 2) == 424px == calc((var(--Card-Width) + var(--DefaultMargin) * 2) * 2)*/
+      @media screen and (width <=26.5rem) {
+        & {
+          margin: calc(var(--DefaultPadding) * 2) auto;
+          float: none;
+          &:before {
+            width: 100%;
+            text-align: center;
+          }
+        }
+      }
+    }
+    &[data--wasread]:not([data--indetail]) {
+      & ._Default {
+        opacity: .7;
+      }
+      &:hover ._Default {
+        opacity: 1;
+      }
+    }
+    &[data--wasread] [data-wasread]:before {
+      display: block !important;
+    }
+    &:hover,
+    &[data--indetail] {
+      & ._Background,
+      & ._Button {
+        transform: translateY(0);
+        opacity: 1;
+      }
+    }
+    &>input[type=checkbox] {
+      display: block;
+      width: 0.1px;
+      height: 0.1px;
+      position: absolute;
+      z-index: -1;
+      opacity: 0;
+      overflow: hidden;
+      visibility: hidden;
+      &:checked {
+        &~._Default {
+          transform: translateX(-10%);
+          visibility: hidden;
+          opacity: 0 !important;
+        }
+        &~._Background {
+          width: 100%;
+          height: 100%;
+          right: 0;
+          bottom: 0;
+          background-color: transparent;
+          box-shadow: 0 0 0 2px var(--DefaultColor);
+          transform: translateY(0);
+          opacity: 1;
+        }
+        &~._Share {
+          visibility: visible;
+          opacity: 1;
+          transition: calc(var(--TransitionDuration) / 1.5) calc(var(--TransitionDuration) / 3);
+          transform: translateX(0) translateY(0) scale(1);
+        }
+        &~._Button {
+          right: calc(var(--DefaultPadding) * .5);
+          bottom: calc(var(--DefaultPadding) * .5);
+          font-size: 0;
+          box-shadow: none;
+          transition: var(--TransitionDuration), box-shadow 0s;
+          transform: translateY(0);
+          opacity: 1;
+          &:after {
+            display: block;
+          }
+        }
+      }
+    }
+    &>._Default,
+    &>._Share {
+      width: 100%;
+      height: 100%;
+      padding: var(--DefaultPadding);
+      position: absolute;
+      top: 0;
+      left: 0;
+    }
+    &>._Default {
+      display: block;
+      z-index: 0;
+      background-color: var(--PrimaryBackgroundColor);
+      box-shadow: 0 .1rem .3rem 0 var(--DefaultShadowColor);
+      cursor: pointer;
+      transition: var(--TransitionDuration);
+      &:hover {
+        box-shadow: 0 .1rem .3rem 0 var(--DefaultShadowColor), 0 .5rem 1.5rem 0 var(--DefaultShadowColor);
+      }
+      &>._Title {
+        max-height: calc(1.5rem * 5);
+        margin: 0 0 .25rem 0;
+        font-size: 1.125rem;
+        font-weight: 500;
+        line-height: 1.5rem;
+      }
+      &>._Subtitle {
+        max-height: calc(1.13rem * 3);
+        font-size: .87rem;
+        line-height: 1.13rem;
+        color: var(--SecondaryColor);
+      }
+      &>._DownSide {
+        width: 100%;
+        padding: 0 var(--DefaultPadding) var(--DefaultPadding) var(--DefaultPadding);
+        position: absolute;
+        left: 0;
+        bottom: 0;
+        line-height: 1;
+        font-weight: 700;
+        &[data-wasread]:before {
+          content: attr(data-wasread);
+          font-size: .75rem;
+          font-weight: 600;
+          text-transform: uppercase;
+          display: none;
+        }
+        &>._Order {
+          font-family: var(--SerifFontFamily);
+          font-size: 3rem;
+        }
+      }
+    }
+    &>._Background {
+      @apply --ShareMorphableArea;
+      z-index: 1;
+      background-color: var(--SecondaryBackgroundColor);
+      transition: var(--TransitionDuration);
+    }
+    &>._Share {
+      z-index: 2;
+      visibility: hidden;
+      opacity: 0;
+      transition: calc(var(--TransitionDuration) / 3);
+      transform: translateX(15%) translateY(15%) scale(.5);
+      &:before {
+        content: attr(data-info);
+        position: absolute;
+        left: var(--DefaultPadding);
+        bottom: calc(var(--DefaultPadding) - .75rem);
+        font-size: .75rem;
+        font-weight: 600;
+        text-transform: uppercase;
+        transform-origin: top left;
+        transform: rotate(-90deg);
+        color: var(--SecondaryColor);
+      }
+      &>._List {
+        list-style: none;
+        margin: 0;
+        padding: 0;
+        font-weight: 600;
+        &>._Item {
+          @apply --TextOverflow;
+          margin-bottom: .25rem;
+          font-size: 1rem;
+          &.__facebook {
+            color: #3B5999;
+          }
+          &.__twitter {
+            color: #55ACEE;
+          }
+          &.__google {
+            color: #DD4B39;
+          }
+        }
+        & a[href] {
+          @apply --TextUnderlineHover;
+        }
+      }
+    }
+    &>._Button {
+      @apply --ShareMorphableArea;
+      z-index: 3;
+      line-height: calc(var(--DefaultPadding) * 1.6);
+      font-size: .75rem;
+      font-weight: 600;
+      text-transform: uppercase;
+      text-align: center;
+      cursor: pointer;
+      transition: var(--TransitionDuration), font-size 0s;
+      box-shadow: 0 .1rem .3rem 0 var(--DefaultShadowColor);
+      &:hover {
+        box-shadow: 0 .1rem .3rem 0 var(--DefaultShadowColor), 0 .5rem 1.5rem 0 var(--DefaultShadowColor);
+        transition: var(--TransitionDuration), font-size 0s 0s, box-shadow var(--TransitionDuration) calc(var(--TransitionDuration) / 2);
+      }
+      &:after {
+        display: none;
+        content: attr(data-active);
+        width: 100%;
+        height: 100%;
+        position: absolute;
+        top: 0;
+        left: 0;
+        font-size: 1rem;
+        text-transform: initial;
+      }
+    }
+  }
+}

@@ -1,0 +1,46 @@
+/*
+<div class="Logo">
+    <header class="_Field">
+        <div class="_Title">40</div>
+        <div class="_Subtitle">hadis</div>
+    </header>
+</div>
+*/
+
+@import "../../../styles/variables.css";
+:host {
+  & .Logo {
+    width: var(--Card-Width);
+    height: var(--Card-Height);
+    margin: calc(var(--DefaultPadding) * 2);
+    padding: var(--DefaultPadding);
+    position: relative;
+    user-select: none;
+    cursor: default;
+    background-color: var(--PrimaryBackgroundColor);
+    color: var(--DefaultColor);
+    box-shadow: 0 .1rem .3rem 0 var(--DefaultShadowColor);
+    font-family: var(--SerifFontFamily);
+    font-weight: 500;
+    /*transition: var(--TransitionDuration);
+    &:hover {
+        box-shadow: 0 .1rem .3rem 0 var(--DefaultShadowColor), 0 .5rem 1.5rem 0 var(--DefaultShadowColor);
+    }*/
+    &>._Field {
+      position: relative;
+      top: 50%;
+      transform: translateY(-50%);
+      text-align: center;
+      &>._Title {
+        margin-top: -1.5rem;
+        font-size: 6rem;
+        font-weight: 900;
+      }
+      &>._Subtitle {
+        margin-top: 1rem;
+        font-size: 1.5rem;
+        color: color(var(--SecondaryColor) a(75%));
+      }
+    }
+  }
+}

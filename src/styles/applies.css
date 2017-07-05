@@ -1,0 +1,157 @@
+:root {
+  --ShareMorphableArea: {
+    width: calc(var(--DefaultPadding) * 3.3);
+    height: calc(var(--DefaultPadding) * 1.6);
+    position: absolute;
+    right: calc(var(--DefaultPadding) * -.75);
+    bottom: var(--DefaultPadding);
+    transform: translateY(20%);
+    opacity: 0;
+  }
+  --TextOverflow: {
+    text-overflow: ellipsis;
+    overflow: hidden;
+    white-space: nowrap;
+  }
+  --TextUnderline: {
+    @supports not (text-decoration-skip: ink) {
+      & {
+        text-shadow: .03em 0 var(--DefaultBackgroundColor), -.03em 0 var(--DefaultBackgroundColor), 0 .03em var(--DefaultBackgroundColor), 0 -.03em var(--DefaultBackgroundColor), .06em 0 var(--DefaultBackgroundColor), -.06em 0 var(--DefaultBackgroundColor), .09em 0 var(--DefaultBackgroundColor), -.09em 0 var(--DefaultBackgroundColor), .12em 0 var(--DefaultBackgroundColor), -.12em 0 var(--DefaultBackgroundColor), .15em 0 var(--DefaultBackgroundColor), -.15em 0 var(--DefaultBackgroundColor);
+        background: linear-gradient(var(--DefaultBackgroundColor), var(--DefaultBackgroundColor)), linear-gradient(var(--DefaultBackgroundColor), var(--DefaultBackgroundColor)), linear-gradient(currentColor, currentColor);
+        background-size: .05em 1px, .05em 1px, 1px 1px;
+        background-repeat: no-repeat, no-repeat, repeat-x;
+        background-position: 0 90%, 100% 90%, 0 90%;
+        &::selection {
+          text-shadow: .03em 0 var(--DefaultSelectionColor), -.03em 0 var(--DefaultSelectionColor), 0 .03em var(--DefaultSelectionColor), 0 -.03em var(--DefaultSelectionColor), .06em 0 var(--DefaultSelectionColor), -.06em 0 var(--DefaultSelectionColor), .09em 0 var(--DefaultSelectionColor), -.09em 0 var(--DefaultSelectionColor), .12em 0 var(--DefaultSelectionColor), -.12em 0 var(--DefaultSelectionColor), .15em 0 var(--DefaultSelectionColor), -.15em 0 var(--DefaultSelectionColor);
+          background: var(--DefaultSelectionColor);
+        }
+      }
+    }
+    @supports (text-decoration-skip: ink) {
+      & {
+        text-decoration: underline;
+        text-decoration-skip: ink;
+      }
+    }
+  }
+  --TextUnderlineHover: {
+    @supports not (text-decoration-skip: ink) {
+      & {
+        text-shadow: none;
+        &:hover {
+          text-shadow: .03em 0 var(--DefaultBackgroundColor), -.03em 0 var(--DefaultBackgroundColor), 0 .03em var(--DefaultBackgroundColor), 0 -.03em var(--DefaultBackgroundColor), .06em 0 var(--DefaultBackgroundColor), -.06em 0 var(--DefaultBackgroundColor), .09em 0 var(--DefaultBackgroundColor), -.09em 0 var(--DefaultBackgroundColor), .12em 0 var(--DefaultBackgroundColor), -.12em 0 var(--DefaultBackgroundColor), .15em 0 var(--DefaultBackgroundColor), -.15em 0 var(--DefaultBackgroundColor);
+          background: linear-gradient(var(--DefaultBackgroundColor), var(--DefaultBackgroundColor)), linear-gradient(var(--DefaultBackgroundColor), var(--DefaultBackgroundColor)), linear-gradient(currentColor, currentColor);
+          background-size: .05em 1px, .05em 1px, 1px 1px;
+          background-repeat: no-repeat, no-repeat, repeat-x;
+          background-position: 0 90%, 100% 90%, 0 90%;
+        }
+        &::selection {
+          text-shadow: .03em 0 var(--DefaultSelectionColor), -.03em 0 var(--DefaultSelectionColor), 0 .03em var(--DefaultSelectionColor), 0 -.03em var(--DefaultSelectionColor), .06em 0 var(--DefaultSelectionColor), -.06em 0 var(--DefaultSelectionColor), .09em 0 var(--DefaultSelectionColor), -.09em 0 var(--DefaultSelectionColor), .12em 0 var(--DefaultSelectionColor), -.12em 0 var(--DefaultSelectionColor), .15em 0 var(--DefaultSelectionColor), -.15em 0 var(--DefaultSelectionColor);
+          background: var(--DefaultSelectionColor);
+        }
+      }
+    }
+    @supports (text-decoration-skip: ink) {
+      &:hover {
+        text-decoration: underline;
+        text-decoration-skip: ink;
+      }
+    }
+  }
+  --ContentStyles: {
+    & p {
+      margin: 0;
+      &:not(:first-child):not(:last-child) {
+        margin: 1.5em 0;
+      }
+    }
+    & b {
+      font-weight: 600;
+    }
+    & i {
+      font-style: italic;
+    }
+    & u {
+      // background-color: rgba(92, 255, 160, .5); 
+      @apply --TextUnderline;
+    }
+    & q {
+      font-family: var(--SerifFontFamily);
+      &:before {
+        content: "“";
+      }
+      &:after {
+        content: "”";
+      }
+    }
+    & blockquote {
+      width: var(--Card-Width);
+      position: relative;
+      margin: calc(var(--DefaultPadding) * 1.5);
+      float: right;
+      font-family: var(--SerifFontFamily);
+      font-size: 1.15em;
+      line-height: 1.3;
+      &:before {
+        content: "“”";
+        display: block;
+        font-size: 3rem;
+        line-height: 3rem;
+      }
+      /*(2 Card genişliği) ((11.25rem + 1rem * 2) * 2) == 424px == calc((var(--Card-Width) + var(--DefaultMargin) * 2) * 2)*/
+      @media screen and (width <=26.5rem) {
+        & {
+          width: 100%;
+          margin: calc(var(--DefaultPadding) * 2) auto;
+          float: none;
+          text-align: center;
+          &:before {
+            width: 100%;
+            text-align: center;
+          }
+        }
+      }
+    }
+    & h2,
+    & h3 {
+      font-weight: 500;
+      font-family: var(--SerifFontFamily);
+    }
+    & h2 {
+      font-size: 1.25em;
+    }
+    & h3 {
+      font-size: 1.15em;
+    }
+    & a:not([class], [id], [title]) {
+      font-weight: 500;
+      cursor: pointer;
+      /*&:before {
+                content: "#";
+            }*/
+      &:after {
+        content: "ꜛ";
+      }
+      &:hover {
+        text-decoration: underline;
+        &:after {
+          content: "ꜜ";
+        }
+      }
+    }
+  }
+}
+
+
+/*
+.--link-underline {
+    & a[href] {
+        @apply --TextUnderline;
+    }
+}
+
+.--link-underline-hover {
+    & a[href] {
+        @apply --TextUnderlineHover;
+    }
+}*/

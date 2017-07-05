@@ -1,5 +1,3 @@
-
-
 import { BrowserModule } from '@angular/platform-browser';
 import { NgModule } from '@angular/core';
 import { FormsModule } from '@angular/forms';
@@ -12,13 +10,13 @@ import { EffectsModule } from '@ngrx/effects';
 import { ComponentsModule } from './components';
 
 import { AppComponent } from './app.component';
-import { ListPageComponent } from './containers/list-page/list-page.component';
+import { MainPageComponent } from './containers/main-page/main-page.component';
 import { DetailViewComponent } from './containers/detail-view/detail-view.component';
 import { AdminPanelComponent } from './containers/admin-panel/admin-panel.component';
 
 import { HadisServiceModule } from './services/index';
 
-import { routes } from './app.routes';
+import { routes, RESOLVERS } from './app.routes';
 
 import { HadisEffects } from './effects/hadis';
 import { reducer } from './reducers';
@@ -26,9 +24,9 @@ import { reducer } from './reducers';
 @NgModule({
   declarations: [
     AppComponent,
-    ListPageComponent,
+    MainPageComponent,
     DetailViewComponent,
-    AdminPanelComponent,
+    AdminPanelComponent
   ],
   imports: [
     BrowserModule,
@@ -47,7 +45,7 @@ import { reducer } from './reducers';
       maxAge: 5
     })
   ],
-  providers: [],
+  providers: [...RESOLVERS],
   bootstrap: [AppComponent]
 })
 export class AppModule { }

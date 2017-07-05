@@ -1,27 +1,31 @@
 import { NgModule } from '@angular/core';
 import { CommonModule } from '@angular/common';
 import { ReactiveFormsModule } from '@angular/forms';
+import { RouterModule } from '@angular/router';
 
-import { HadisListComponent } from './hadis-list/hadis-list.component';
-import { HadisListItemComponent } from './hadis-list-item/hadis-list-item.component';
-import { HadisDetailComponent } from './hadis-detail/hadis-detail.component';
 import { AddHadisComponent } from './add-hadis/add-hadis.component';
-import { LayoutComponent } from './layout/layout.component';
-
+import { HadisLogoComponent } from './hadis-logo/hadis-logo.component';
+import { HadisListItemComponent } from './hadis-list-item/hadis-list-item.component';
+import { LoadButtonComponent } from './load-button/load-button.component';
+import { NavigationComponent } from './navigation/navigation.component';
+import { ArticleComponent } from './article/article.component';
+import { FooterComponent } from './footer/footer.component';
 
 export const COMPONENTS = [
-  HadisListComponent,
-  HadisListItemComponent,
-  HadisDetailComponent,
   AddHadisComponent,
-  LayoutComponent
+  HadisLogoComponent,
+  HadisListItemComponent,
+  LoadButtonComponent,
+  NavigationComponent,
+  ArticleComponent,
+  FooterComponent
 ];
-
 
 @NgModule({
   imports: [
     CommonModule,
-    ReactiveFormsModule
+    ReactiveFormsModule,
+    RouterModule
   ],
   declarations: COMPONENTS,
   exports: COMPONENTS

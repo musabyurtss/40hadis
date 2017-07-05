@@ -1,0 +1,39 @@
+/*<aside class="List">...</aside>*/
+
+@import "../../../styles/variables.css";
+:host {
+  & .List {
+    width: calc((var(--Card-Width) + var(--DefaultMargin) * 2) * 2);
+    margin: 0 auto;
+    padding: calc(var(--DefaultMargin) * 2) 0 0 0;
+    clear: fix;
+    &>* {
+      &>>>>* {
+        margin: 0 var(--DefaultMargin);
+        float: left;
+      }
+      &:nth-child(odd)>>>>* {
+        margin-top: calc(var(--DefaultMargin) * -2);
+      }
+      &:nth-child(even)>>>>* {
+        margin-top: calc(var(--DefaultMargin) * 2);
+      }
+    }
+    /*(2 Card genişliği) ((11.25rem + 1rem * 2) * 2) == 424px == calc((var(--Card-Width) + var(--DefaultMargin) * 2) * 2)*/
+    @media screen and (width <=26.5rem) {
+      & {
+        width: calc((var(--Card-Width) + var(--DefaultMargin) * 2) * 1);
+        padding: 0;
+        &>* {
+          &>>>>* {
+            margin: 0 auto calc(var(--DefaultMargin) * 2) auto !important;
+            float: none;
+          }
+          &:last-child>>>>* {
+            margin-bottom: 0 !important;
+          }
+        }
+      }
+    }
+  }
+}

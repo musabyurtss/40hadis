@@ -9,12 +9,12 @@ import * as reducer from '../../reducers';
 import * as hadis from '../../actions/hadis';
 
 @Component({
-  selector: 'app-list-page',
-  templateUrl: './list-page.component.html',
-  styleUrls: ['./list-page.component.css'],
+  selector: 'app-main-page',
+  templateUrl: './main-page.component.html',
+  styleUrls: ['./main-page.component.css'],
   changeDetection: ChangeDetectionStrategy.OnPush
 })
-export class ListPageComponent implements OnInit {
+export class MainPageComponent implements OnInit {
 
   hadisler$: Observable<Hadis[]>;
   loading$: Observable<boolean>

@@ -5,11 +5,12 @@
 // };
 
 export interface Hadis {
-   id: string;
-   hadisInfo: {
-    title: string,
-    subtitle: string,
-    text: string,
-    author: string
-   };
+    id: string;
+    hadisInfo: {
+        order: number,
+        title: string,
+        author: string
+        text: string,
+        seen: boolean
+    };
 }

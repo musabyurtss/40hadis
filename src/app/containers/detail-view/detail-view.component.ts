@@ -1,7 +1,10 @@
-import { Component, OnInit, ChangeDetectionStrategy } from '@angular/core';
-import { ActivatedRoute } from '@angular/router';
+import { Component, OnInit, ChangeDetectionStrategy, Injectable, ViewChild, ElementRef } from '@angular/core';
+
+import { Resolve, ActivatedRouteSnapshot, ActivatedRoute } from '@angular/router';
 import { Observable } from 'rxjs/Observable';
 import { Store } from '@ngrx/store';
+import { HadisDataService } from './../../services/hadis.data.service';
+import 'rxjs/add/observable/merge';
 
 import * as reducer from '../../reducers';
 import * as hadisItem from '../../actions/hadisItem';
@@ -14,23 +17,30 @@ import { Hadis } from './../../models/hadis';
   changeDetection: ChangeDetectionStrategy.OnPush
 })
 export class DetailViewComponent implements OnInit {
-  hadisItem$: Observable<Hadis>;
-  loading$: Observable<boolean>
 
+  hadis;
 
-  constructor(private route: ActivatedRoute, private _store: Store<any>) { }
+  @ViewChild('contenthtml')
+  contenthtml: ElementRef;
+
+  constructor(private route: ActivatedRoute) { }
 
   ngOnInit() {
-
-    this.route.params.subscribe(params => {
-      const id = +params['id'];
-
-      this._store.dispatch(new hadisItem.HadisByIdAction(id));
-
-      this.hadisItem$ = this._store.select(reducer.getSelectedHadisItem);
-      this.loading$ = this._store.select(reducer.getSelectedHadisLoading);
-    });
-
+    this.hadis = this.route.snapshot.data['hadis'];
+    this.loadData(this.hadis.hadisInfo.text);
   }
 
+  loadData(data) {
+    this.contenthtml.nativeElement.innerHTML = data;
+  }
+
+}
+
+@Injectable()
+export class DetailViewResolver implements Resolve<Hadis> {
+  constructor(private _hadisDataService: HadisDataService) { }
+
+  resolve(route: ActivatedRouteSnapshot): Observable<any> {
+    return this._hadisDataService.getHadisById(+route.params['id']);
+  }
 }

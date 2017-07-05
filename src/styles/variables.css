@@ -1,0 +1,18 @@
+:root {
+  --DefaultBackgroundColor: #F2F2F2;
+  --DefaultColor: #4f4f4f;
+  --DefaultLinkColor: #3c6dff;
+  --DefaultSelectionColor: #b4d5fe;
+  --DefaultFontFamily: "Work Sans", "Poppins", "Consolas", "Trebuchet MS", "Lucida Sans Unicode", "Lucida Grande", "Lucida Sans", system-ui;
+  --TransitionDuration: .25s;
+  --DefaultMargin: 1rem;
+  --DefaultPadding: 1.25rem;
+  --DefaultShadowColor: #bdbdbd;
+  --SerifFontFamily: "Playfair Display", system-ui;
+  --PrimaryBackgroundColor: #fff;
+  --SecondaryBackgroundColor: #E0E0E0;
+  --SecondaryColor: #828282;
+  --ContentColor: #333;
+  --Card-Width: 11.25rem;
+  --Card-Height: 17.5rem;
+}
