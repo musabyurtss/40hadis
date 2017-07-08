@@ -7,35 +7,39 @@ import { StoreModule } from '@ngrx/store';
 import { StoreDevtoolsModule } from '@ngrx/store-devtools';
 import { EffectsModule } from '@ngrx/effects';
 
-import { ComponentsModule } from './components';
-
-import { AppComponent } from './app.component';
-import { MainPageComponent } from './containers/main-page/main-page.component';
-import { DetailViewComponent } from './containers/detail-view/detail-view.component';
-import { AdminPanelComponent } from './containers/admin-panel/admin-panel.component';
-
-import { HadisServiceModule } from './services/index';
-
-import { routes, RESOLVERS } from './app.routes';
-
+// ngrx/store imports
 import { HadisEffects } from './effects/hadis';
 import { reducer } from './reducers';
+
+// Components
+import { ComponentsModule } from './components';
+import { CONTAINERS } from './containers';
+
+// Routes & Resolvers
+import { AppComponent } from './app.component';
+import { RESOLVERS } from './resolvers';
+import { routes } from './app.routes';
+
+// Services
+import { AppServiceModule } from './services';
+
+
 
 @NgModule({
   declarations: [
     AppComponent,
-    MainPageComponent,
-    DetailViewComponent,
-    AdminPanelComponent
+    // container components
+    ...CONTAINERS
   ],
   imports: [
     BrowserModule,
     FormsModule,
     HttpModule,
-    HadisServiceModule,
+    AppServiceModule,
     RouterModule.forRoot(routes, { useHash: true }),
-    // Components
+    // dumb | screen Components (parts of the container components)
     ComponentsModule,
+    /** State Management initialize */
     // Store
     StoreModule.provideStore(reducer),
     // Effects

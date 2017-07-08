@@ -8,4 +8,4 @@ import { NgModule } from '@angular/core';
     declarations: [],
     providers: [HadisDataService],
 })
-export class HadisServiceModule { }
+export class AppServiceModule { }

@@ -1,20 +1,18 @@
 import { Routes } from '@angular/router';
+
 import { MainPageComponent } from './containers/main-page/main-page.component';
-import { DetailViewComponent, DetailViewResolver } from './containers/detail-view/detail-view.component';
-import { AdminPanelComponent } from './containers/admin-panel/admin-panel.component';
+import { DetailViewComponent } from './containers/detail-view/detail-view.component';
 
-
-export const adminRoutes: Routes = [
-  {
-    path: 'admin',
-    component: AdminPanelComponent
-  }
-];
+import { DetailViewResolver } from './resolvers/detail-view.resolver';
+import { MainPageResolver } from './resolvers/main-page.resolver';
 
 export const routes: Routes = [
   {
     path: 'hadis',
-    component: MainPageComponent
+    component: MainPageComponent,
+    resolve: {
+      hadiss: MainPageResolver
+    }
   },
   {
     path: 'hadis/:id',
@@ -28,7 +26,6 @@ export const routes: Routes = [
     redirectTo: '/hadis',
     pathMatch: 'full'
   },
-  ...adminRoutes,
   {
     path: '**', component: MainPageComponent
   }

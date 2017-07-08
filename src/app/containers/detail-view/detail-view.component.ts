@@ -1,6 +1,6 @@
 import { Component, OnInit, ChangeDetectionStrategy, Injectable, ViewChild, ElementRef } from '@angular/core';
 
-import { Resolve, ActivatedRouteSnapshot, ActivatedRoute } from '@angular/router';
+import { Resolve, ActivatedRouteSnapshot, ActivatedRoute, RouterStateSnapshot } from '@angular/router';
 import { Observable } from 'rxjs/Observable';
 import { Store } from '@ngrx/store';
 import { HadisDataService } from './../../services/hadis.data.service';
@@ -34,13 +34,4 @@ export class DetailViewComponent implements OnInit {
     this.contenthtml.nativeElement.innerHTML = data;
   }
 
-}
-
-@Injectable()
-export class DetailViewResolver implements Resolve<Hadis> {
-  constructor(private _hadisDataService: HadisDataService) { }
-
-  resolve(route: ActivatedRouteSnapshot): Observable<any> {
-    return this._hadisDataService.getHadisById(+route.params['id']);
-  }
 }

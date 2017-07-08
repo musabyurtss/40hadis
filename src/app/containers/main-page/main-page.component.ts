@@ -1,7 +1,7 @@
-import { Router } from '@angular/router';
+import { ActivatedRoute } from '@angular/router';
 import { Hadis } from './../../models/hadis';
 
-import { Component, OnInit, ChangeDetectionStrategy } from '@angular/core';
+import { Component, OnInit, ChangeDetectionStrategy, Injectable } from '@angular/core';
 import { Observable } from 'rxjs/Observable';
 import { Store } from '@ngrx/store';
 
@@ -19,15 +19,14 @@ export class MainPageComponent implements OnInit {
   hadisler$: Observable<Hadis[]>;
   loading$: Observable<boolean>
 
-  constructor(private router: Router, private _store: Store<any>) { }
+  hadisArray = [];
+
+  constructor(private route: ActivatedRoute) { }
+
 
   ngOnInit() {
-    this._store.dispatch(new hadis.FetchHadissAction());
-    this.hadisler$ = this._store.select(reducer.getHadisList);
-    this.loading$ = this._store.select(reducer.getHadisListLoading);
+    this.hadisArray = this.route.snapshot.data['hadiss'];
   }
 
-  hadiseGit(id) {
-    this.router.navigate(['/hadis', id])
-  }
 }
+
