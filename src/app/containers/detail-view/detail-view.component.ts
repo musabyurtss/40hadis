@@ -27,6 +27,7 @@ export class DetailViewComponent implements OnInit {
 
   ngOnInit() {
     this.hadis = this.route.snapshot.data['hadis'];
+    
     this.loadData(this.hadis.hadisInfo.text);
   }
 

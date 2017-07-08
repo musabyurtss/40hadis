@@ -16,16 +16,12 @@ import * as hadis from '../../actions/hadis';
 })
 export class MainPageComponent implements OnInit {
 
-  hadisler$: Observable<Hadis[]>;
-  loading$: Observable<boolean>
-
   hadisArray = [];
 
   constructor(private route: ActivatedRoute) { }
 
-
   ngOnInit() {
-    this.hadisArray = this.route.snapshot.data['hadiss'];
+    this.hadisArray = this.route.snapshot.data['hadiss']
   }
 
 }
