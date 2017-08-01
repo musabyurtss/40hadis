@@ -3,12 +3,7 @@ import { Component, OnInit, ChangeDetectionStrategy, Injectable, ViewChild, Elem
 import { Resolve, ActivatedRouteSnapshot, ActivatedRoute, RouterStateSnapshot } from '@angular/router';
 import { Observable } from 'rxjs/Observable';
 import { Store } from '@ngrx/store';
-import { HadisDataService } from './../../services/hadis.data.service';
 import 'rxjs/add/observable/merge';
-
-import * as reducer from '../../reducers';
-import * as hadisItem from '../../actions/hadisItem';
-import { Hadis } from './../../models/hadis';
 
 @Component({
   selector: 'app-detail-view',
@@ -27,7 +22,7 @@ export class DetailViewComponent implements OnInit {
 
   ngOnInit() {
     this.hadis = this.route.snapshot.data['hadis'];
-    
+
     this.loadData(this.hadis.hadisInfo.text);
   }
 

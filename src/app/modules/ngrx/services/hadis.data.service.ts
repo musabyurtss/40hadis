@@ -7,7 +7,7 @@ import 'rxjs/add/operator/catch';
 
 @Injectable()
 export class HadisDataService {
-    private API_ROOT: String = 'http://localhost:3000';
+    private API_ROOT: String = 'https://lit-sea-64464.herokuapp.com';
 
     constructor(private http: Http) { }
 

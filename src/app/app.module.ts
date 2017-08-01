@@ -8,20 +8,19 @@ import { StoreDevtoolsModule } from '@ngrx/store-devtools';
 import { EffectsModule } from '@ngrx/effects';
 
 // ngrx/store imports
-import { HadisEffects } from './effects/hadis';
-import { reducer } from './reducers';
+import { HadisEffects } from './modules/ngrx';
+import { reducer } from './modules/ngrx/reducers';
 
 // Components
 import { ComponentsModule } from './components';
+// Containers
 import { CONTAINERS } from './containers';
+import { ContainerModule } from './containers/container.module';
 
-// Routes & Resolvers
 import { AppComponent } from './app.component';
-import { RESOLVERS } from './resolvers';
-import { routes } from './app.routes';
 
 // Services
-import { AppServiceModule } from './services';
+import { AppServiceModule } from './modules/ngrx';
 
 
 
@@ -36,8 +35,9 @@ import { AppServiceModule } from './services';
     FormsModule,
     HttpModule,
     AppServiceModule,
-    RouterModule.forRoot(routes, { useHash: true }),
-    // dumb | screen Components (parts of the container components)
+    RouterModule.forRoot([]),
+    ContainerModule,
+    // dumb | screen Components (part of the container components)
     ComponentsModule,
     /** State Management initialize */
     // Store
@@ -49,7 +49,7 @@ import { AppServiceModule } from './services';
       maxAge: 5
     })
   ],
-  providers: [...RESOLVERS],
+  providers: [],
   bootstrap: [AppComponent]
 })
 export class AppModule { }

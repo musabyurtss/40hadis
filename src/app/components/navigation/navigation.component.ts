@@ -1,7 +1,5 @@
 import { Component, OnInit, Input } from '@angular/core';
 
-import { Hadis } from '../../models/hadis';
-
 @Component({
   selector: 'app-navigation',
   templateUrl: './navigation.component.html',
@@ -10,10 +8,10 @@ import { Hadis } from '../../models/hadis';
 export class NavigationComponent implements OnInit {
 
   @Input()
-  prevHadis: Hadis;
+  prevHadis;
 
   @Input()
-  nextHadis: Hadis;
+  nextHadis;
 
   constructor() { }
 

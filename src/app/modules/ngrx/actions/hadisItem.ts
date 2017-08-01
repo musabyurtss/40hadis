@@ -23,4 +23,4 @@ export class HadisByIdFailAction implements Action {
     constructor(public payload: any) { }
 }
 
-export type Actions = HadisByIdAction | HadisByIdSuccessAction | HadisByIdFailAction;
+export type HadisItemActions = HadisByIdAction | HadisByIdSuccessAction | HadisByIdFailAction;

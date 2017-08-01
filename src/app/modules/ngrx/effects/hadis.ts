@@ -14,7 +14,7 @@ import { Effect, Actions } from '@ngrx/effects';
 
 import * as hadisActions from '../actions/hadis';
 import * as hadisItemActions from '../actions/hadisItem';
-import { HadisDataService } from './../services/hadis.data.service';
+import { HadisDataService } from '../services/hadis.data.service';
 import { Hadis } from './../models/hadis';
 
 @Injectable()

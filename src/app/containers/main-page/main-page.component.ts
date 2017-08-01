@@ -1,12 +1,10 @@
 import { ActivatedRoute } from '@angular/router';
-import { Hadis } from './../../models/hadis';
+import { Hadis } from './../../modules/ngrx';
 
 import { Component, OnInit, ChangeDetectionStrategy, Injectable } from '@angular/core';
 import { Observable } from 'rxjs/Observable';
 import { Store } from '@ngrx/store';
 
-import * as reducer from '../../reducers';
-import * as hadis from '../../actions/hadis';
 
 @Component({
   selector: 'app-main-page',

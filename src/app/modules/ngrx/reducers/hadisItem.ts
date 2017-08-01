@@ -17,7 +17,7 @@ const initialState: State = {
     selectedHadisItem: null
 }
 
-export const HadisReducer = (state: State = initialState, action: hadisItemAction.Actions) => {
+export const HadisReducer = (state: State = initialState, action: hadisItemAction.HadisItemActions) => {
     switch (action.type) {
         case hadisItemAction.HADIS_BY_ID:
             return Object.assign({}, state, { loading: true });

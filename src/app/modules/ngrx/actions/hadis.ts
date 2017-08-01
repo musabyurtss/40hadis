@@ -28,4 +28,4 @@ export class FetchHadissFailAction implements Action {
 }
 
 
-export type Actions = FetchHadissAction | FetchHadissSuccessAction | FetchHadissFailAction;
+export type HadisActions = FetchHadissAction | FetchHadissSuccessAction | FetchHadissFailAction;
