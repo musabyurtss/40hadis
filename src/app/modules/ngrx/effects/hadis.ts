@@ -28,11 +28,13 @@ export class HadisEffects {
     getHadisList: Observable<Action> = this.$actions
         .ofType(hadisActions.FETCH_HADISS)
         // .startWith(new hadisActions.FetchHadissAction())
-        .switchMap(() =>
-            this.hDataService.getHadiss()
+        .switchMap((action) => {
+
+            return this.hDataService.getHadiss(action.payload.skip, action.payload.limit)
 
                 .map((hadiss: Hadis[]) => new hadisActions.FetchHadissSuccessAction(hadiss))
                 .catch(error => of(new hadisActions.FetchHadissFailAction(error)))
+        }
         )
 
     // HADIS_BY_ID action dispatch edildiginde tetiklenir.
@@ -40,11 +42,13 @@ export class HadisEffects {
     getHadisById: Observable<Action> = this.$actions
         .ofType(hadisItemActions.HADIS_BY_ID)
         .switchMap(
-        (action) =>
-            this.hDataService.getHadisById(action.payload)
+        (action) => {
+            return this.hDataService.getHadisById(action.payload)
                 .map(hadisItem => new hadisItemActions.HadisByIdSuccessAction(hadisItem))
                 .catch(error => of(new hadisItemActions.HadisByIdFailAction(error)))
+        }
         )
+
 
 
 }

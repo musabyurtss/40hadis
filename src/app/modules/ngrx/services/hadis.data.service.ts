@@ -11,12 +11,12 @@ export class HadisDataService {
 
     constructor(private http: Http) { }
 
-    getHadiss(skip = '0', limit = '7'): Observable<Hadis[]> {
+    getHadiss(skip = '0', limit = '5'): Observable<Hadis[]> {
 
         const headerJson = new Headers({ 'Content-Type': 'application/json' });
 
         const params = new URLSearchParams();
-        params.append('_page', skip);
+        params.append('_start', skip);
         params.append('_limit', limit);
 
         const options = new RequestOptions({ headers: headerJson, params: params });

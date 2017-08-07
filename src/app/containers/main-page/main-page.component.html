@@ -1,8 +1,10 @@
 <aside class="List">
   <app-hadis-logo></app-hadis-logo>
-  <app-hadis-list-item *ngFor="let hadis of hadisArray" [hadis]="hadis"></app-hadis-list-item>
-</aside>
+  <app-hadis-list-item *ngFor="let hadis of containerArr | async" [hadis]="hadis"></app-hadis-list-item>
+  <!-- <app-hadis-list-item *ngFor="let hadis1 of x | async" [hadis]="hadis1"></app-hadis-list-item> -->
 
-<div class="-block-centering -margin-top">
+</aside>
+<!-- {{ x | async | json}} -->
+<div class="-block-centering -margin-top" (click)="getir()">
   <app-load-button [status]="loading$ | async"></app-load-button>
 </div>

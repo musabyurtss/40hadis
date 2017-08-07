@@ -7,12 +7,17 @@ export const REMOVE_HADIS = 'REMOVE_HADIS';
 export const FETCH_HADISS = 'FETCH_HADISS';
 export const FETCH_HADISS_SUCCES = 'FETCH_HADISS_SUCCES';
 export const FETCH_HADISS_FAIL = 'FETCH_HADISS_FAIL';
+export const FETCH_HADISS_PAGE = 'FETCH_HADISS_PAGE';
 
-
+interface p {
+  skip: string,
+  limit: string
+}
 
 // gets a list of hadis (init - success - fail)
 export class FetchHadissAction implements Action {
   readonly type = FETCH_HADISS;
+  constructor(public payload: p) { }
 }
 
 export class FetchHadissSuccessAction implements Action {
@@ -27,5 +32,14 @@ export class FetchHadissFailAction implements Action {
   constructor(public payload: any) { }
 }
 
+export class FetchHadissPageAction implements Action {
+  readonly type = FETCH_HADISS_PAGE;
 
-export type HadisActions = FetchHadissAction | FetchHadissSuccessAction | FetchHadissFailAction;
+  constructor(public payload: any) { }
+}
+
+
+export type HadisActions = FetchHadissAction
+  | FetchHadissSuccessAction
+  | FetchHadissFailAction
+  | FetchHadissPageAction;
