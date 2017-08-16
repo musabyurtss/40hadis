@@ -29,8 +29,6 @@ export const HadisReducer = (state: State = initialState, action: hadisAction.Ha
     case hadisAction.FETCH_HADISS_SUCCES: {
       var hadissPreviews = [];
       hadissPreviews = state.hadiss.concat(action.payload);
-      console.log(hadissPreviews);
-      console.log(action.payload);
 
       return Object.assign({}, state, {
         loading: false,

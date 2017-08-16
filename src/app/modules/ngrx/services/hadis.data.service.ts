@@ -25,6 +25,15 @@ export class HadisDataService {
             .map((response: Response) => response.json())
     }
 
+    getHadisByFilters(filters) {
+        console.log(filters);
+        const params = new URLSearchParams();
+        params.set("_start", (filters.pageSize * filters.currentPage - filters.pageSize).toString());
+        params.set("_limit", filters.pageSize);
+        return this.http.get(`${this.API_ROOT}/hadis`, { search: params }).map(r => r.json());
+
+    }
+
     getHadisById(id) {
 
         const headerJson = new Headers({ 'Content-Type': 'application/json' });

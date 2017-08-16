@@ -1,4 +1,5 @@
 import { Action } from '@ngrx/store';
+import { RouterAction, ROUTER_NAVIGATION, RouterNavigationAction } from '@ngrx/router-store';
 import { Hadis } from '../models/hadis';
 
 export const CREATE_HADIS = 'CREATE_HADIS';
@@ -39,7 +40,8 @@ export class FetchHadissPageAction implements Action {
 }
 
 
-export type HadisActions = FetchHadissAction
+export type HadisActions = RouterAction<any>
+  | FetchHadissAction
   | FetchHadissSuccessAction
   | FetchHadissFailAction
   | FetchHadissPageAction;

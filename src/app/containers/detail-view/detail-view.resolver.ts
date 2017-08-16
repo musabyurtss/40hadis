@@ -22,7 +22,12 @@ export class DetailViewResolver implements Resolve<any> {
   resolve(route: ActivatedRouteSnapshot): Observable<any> {
     this.store.dispatch({ type: HADIS_BY_ID, payload: +route.params['id'] });
     return this.action$.ofType(HADIS_BY_ID_SUCCESS)
-      .map(state => state.payload)
+      .map(state => {
+        console.log(state);
+        console.log(state.payload[1]);
+
+        return state.payload[1]
+      })
       .take(1)
   }
 }

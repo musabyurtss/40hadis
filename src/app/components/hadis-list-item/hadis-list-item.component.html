@@ -1,7 +1,7 @@
 <div class="Card" [attr.data--wasread]="hadis?.hadisInfo?.seen ? '' : null" [attr.data--indetail]="layoutType==='DetailItem' ? 'Şuan okunan hadis' : null">
   <input type="checkbox" id="label_{{hadis?.id}}">
-  <!--<a [routerLink]="['/hadis', hadis?.id]" class="_Default">-->
-  <a routerLink="/hadis/{{hadis?.id}}" class="_Default">
+  <a [routerLink]="['/hadis', hadis?.id]" class="_Default">
+    <!-- <a routerLink="/hadis/{{hadis?.id}}" class="_Default"> -->
     <h1 class="_Title">{{hadis?.hadisInfo?.title}}</h1>
     <div class="_Subtitle">{{hadis?.hadisInfo?.author}}</div>
     <div class="_DownSide" data-wasread="Okundu">

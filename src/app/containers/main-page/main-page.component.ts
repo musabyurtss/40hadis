@@ -33,16 +33,16 @@ export class MainPageComponent implements OnInit {
 
   obHadisArr;
   constructor(
-    private ref: ChangeDetectorRef,
     private route: ActivatedRoute,
     private store: Store<any>,
     private action$: Actions) { }
 
   ngOnInit() {
-    this.containerArr = this.store.select('hadis').map(state => {
-      this.hadisArrayInit = state['hadiss']
-      return this.hadisArrayInit;
-    });
+    this.containerArr = this.store.select('hadis')
+      .map(state => {
+        this.hadisArrayInit = state['hadiss']
+        return this.hadisArrayInit;
+      });
     // this.hadisArray = this.route.snapshot.data['hadiss'];
   }
 

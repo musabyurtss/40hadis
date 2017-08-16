@@ -6,6 +6,7 @@ import { RouterModule } from '@angular/router';
 import { StoreModule } from '@ngrx/store';
 import { StoreDevtoolsModule } from '@ngrx/store-devtools';
 import { EffectsModule } from '@ngrx/effects';
+import { StoreRouterConnectingModule } from "@ngrx/router-store";
 
 // ngrx/store imports
 import { HadisEffects } from './modules/ngrx';
@@ -47,7 +48,8 @@ import { AppServiceModule } from './modules/ngrx';
     // Development icin. Daha sonra kaldirilacak.
     StoreDevtoolsModule.instrumentOnlyWithExtension({
       maxAge: 5
-    })
+    }),
+    StoreRouterConnectingModule
   ],
   providers: [],
   bootstrap: [AppComponent]
