@@ -1,14 +1,14 @@
 import { ActivatedRoute } from '@angular/router';
-import { ChangeDetectorRef } from '@angular/core';
-import { Hadis, FETCH_HADISS, FETCH_HADISS_SUCCES } from './../../modules/ngrx';
+import { Component, OnInit, ChangeDetectionStrategy } from '@angular/core';
 
-import { Component, OnInit, ChangeDetectionStrategy, Injectable } from '@angular/core';
-import { Observable } from 'rxjs/Observable';
-import 'rxjs/add/observable/of';
+import { Hadis, HadisState, State, getHadisCollection } from './../../modules/ngrx';
+
 
 import { Store } from '@ngrx/store';
 import { Actions } from '@ngrx/effects';
 
+import { Observable } from 'rxjs/Observable';
+import 'rxjs/add/observable/of';
 import 'rxjs/add/operator/do';
 import 'rxjs/add/operator/concat';
 import 'rxjs/add/operator/merge';
@@ -21,43 +21,29 @@ import 'rxjs/add/operator/merge';
   changeDetection: ChangeDetectionStrategy.OnPush
 })
 export class MainPageComponent implements OnInit {
-
-  hadisArrayInit = [];
   containerArr: Observable<any>;
-  loading$;
+  loading$: Observable<any>;
 
-  start = 0;
-  end = 5;
-  pageItemSize = 5;
+  currentPage = 1;
+  pageItemSize = 6;
 
-
-  obHadisArr;
   constructor(
     private route: ActivatedRoute,
-    private store: Store<any>,
+    private store: Store<State>,
     private action$: Actions) { }
 
   ngOnInit() {
-    this.containerArr = this.store.select('hadis')
-      .map(state => {
-        this.hadisArrayInit = state['hadiss']
-        return this.hadisArrayInit;
-      });
-    // this.hadisArray = this.route.snapshot.data['hadiss'];
+    this.containerArr = Observable.of(this.route.snapshot.data['hadiss']);
   }
 
 
   getir() {
-    this.start += this.pageItemSize;
-
-    this.loading$ = this.store.select('hadis').map((s) => s['loading'])
-    this.store.dispatch({ type: FETCH_HADISS, payload: { skip: this.start, limit: this.end } });
-
-    this.containerArr = this.store.select('hadis')
-      .map(state => {
-        return state['hadiss']
-      })
-
+    this.currentPage++;
+    console.log(this.currentPage);
+    
+    this.store.dispatch({ type: "HADIS_LIST_EXTEND", payload: {currentPage: this.currentPage, pageSize: this.pageItemSize} });
+    this.containerArr = this.store.select(getHadisCollection)
+      .map(list => list);
   }
 
 }

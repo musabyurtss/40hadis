@@ -10,7 +10,12 @@ export const mainPageRoutes: Routes = [
         component: MainPageComponent,
         resolve: {
             hadiss: MainPageResolver
-        }
+        },
+        data: {
+            pageSize: 6,
+            currentPage: 1
+        },
+        
     }
 ];
 

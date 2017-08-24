@@ -7,7 +7,9 @@ import 'rxjs/add/operator/catch';
 
 @Injectable()
 export class HadisDataService {
-    private API_ROOT: String = 'https://lit-sea-64464.herokuapp.com';
+
+    private API_ROOT: String = 'http://localhost:3007';
+    // private API_ROOT: String = 'https://safe-scrubland-70496.herokuapp.com';
 
     constructor(private http: Http) { }
 
@@ -16,8 +18,8 @@ export class HadisDataService {
         const headerJson = new Headers({ 'Content-Type': 'application/json' });
 
         const params = new URLSearchParams();
-        params.append('_start', skip);
-        params.append('_limit', limit);
+        params.append('skip', skip);
+        params.append('limit', limit);
 
         const options = new RequestOptions({ headers: headerJson, params: params });
 
@@ -26,10 +28,10 @@ export class HadisDataService {
     }
 
     getHadisByFilters(filters) {
-        console.log(filters);
         const params = new URLSearchParams();
-        params.set("_start", (filters.pageSize * filters.currentPage - filters.pageSize).toString());
-        params.set("_limit", filters.pageSize);
+        params.set("skip", (filters.pagination.pageSize * filters.pagination.currentPage - filters.pagination.pageSize).toString());
+        params.set("limit", (filters.pagination.pageSize));
+        
         return this.http.get(`${this.API_ROOT}/hadis`, { search: params }).map(r => r.json());
 
     }

@@ -9,8 +9,8 @@ import { EffectsModule } from '@ngrx/effects';
 import { StoreRouterConnectingModule } from "@ngrx/router-store";
 
 // ngrx/store imports
-import { HadisEffects } from './modules/ngrx';
-import { reducer } from './modules/ngrx/reducers';
+import { HadisEffects, reducer } from './modules/ngrx';
+// import { reducer } from './modules/ngrx/reducers';
 
 // Components
 import { ComponentsModule } from './components';

@@ -8,13 +8,16 @@ import { HadisListItemComponent } from './hadis-list-item/hadis-list-item.compon
 import { LoadButtonComponent } from './load-button/load-button.component';
 import { NavigationComponent } from './navigation/navigation.component';
 import { FooterComponent } from './footer/footer.component';
+import { HadisTextComponent } from './hadis-text/hadis-text.component';
+
 
 export const COMPONENTS = [
   HadisLogoComponent,
   HadisListItemComponent,
   LoadButtonComponent,
   NavigationComponent,
-  FooterComponent
+  FooterComponent,
+  HadisTextComponent
 ];
 
 @NgModule({

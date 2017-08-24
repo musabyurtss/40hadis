@@ -57,6 +57,7 @@
     "karma-jasmine": "~1.1.0",
     "karma-jasmine-html-reporter": "^0.2.2",
     "less-loader": "^4.0.2",
+    "ngrx-store-freeze": "^0.1.9",
     "pixrem": "^3.0.2",
     "pleeease-filters": "^4.0.0",
     "postcss-apply": "^0.8.0",
