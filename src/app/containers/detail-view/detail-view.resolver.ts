@@ -1,12 +1,12 @@
 import { Injectable } from '@angular/core';
 import { Resolve, ActivatedRouteSnapshot } from '@angular/router';
-import { Observable,  } from 'rxjs/Observable';
+import { Observable, } from 'rxjs/Observable';
 import { Store } from '@ngrx/store';
 import { Actions } from '@ngrx/effects';
 import 'rxjs/add/operator/repeat';
 
 
-import { Hadis, HadisState, State, getHadisItem } from './../../modules/ngrx';
+import { Hadis, HadisState, State, getHadisItem, getDetail, getPending, HadisListExtend } from './../../modules/ngrx';
 
 import { HADIS_BY_ID, HADIS_BY_ID_SUCCESS } from '../../modules/ngrx';
 
@@ -18,9 +18,14 @@ export class DetailViewResolver implements Resolve<any> {
     private action$: Actions
   ) { }
 
-  resolve(route: ActivatedRouteSnapshot): Observable<any> {
-     return this.store.select(getHadisItem).take(2);
+  resolve(route: ActivatedRouteSnapshot): any {
 
-    //  return
+    return this.store.select(getPending)
+      // .map(a => {
+      //   console.log(a);
+        
+      // })
+      // .filter((p) => { return !!p })
+      .take(2)
   }
 }

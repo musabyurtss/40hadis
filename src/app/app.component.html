@@ -5,7 +5,11 @@
 -->
 
 <section class="Page">
-  <main class="_Layout">
-    <router-outlet></router-outlet>
+  <main class="_Layout ">
+    <router-outlet [class.overlay]="pending | async"></router-outlet>
   </main>
 </section>
+
+<div [class.cssload-container]="pending | async">
+    <div [class.cssload-whirlpool]="pending | async"></div>
+  </div>

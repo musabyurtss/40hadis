@@ -1,7 +1,7 @@
 import { ActivatedRoute } from '@angular/router';
 import { Component, OnInit, ChangeDetectionStrategy } from '@angular/core';
 
-import { Hadis, HadisState, State, getHadisCollection } from './../../modules/ngrx';
+import { Hadis, HadisState, State, getHadisCollection, getPending } from './../../modules/ngrx';
 
 
 import { Store } from '@ngrx/store';
@@ -39,11 +39,11 @@ export class MainPageComponent implements OnInit {
 
   getir() {
     this.currentPage++;
-    console.log(this.currentPage);
     
-    this.store.dispatch({ type: "HADIS_LIST_EXTEND", payload: {currentPage: this.currentPage, pageSize: this.pageItemSize} });
+    this.store.dispatch({ type: "HADIS_LIST_EXTEND", payload: {currentPage: this.currentPage, pageSize: this.pageItemSize, pending:true} });
     this.containerArr = this.store.select(getHadisCollection)
-      .map(list => list);
+      // .map(list => list);
+    this.loading$ = this.store.select(getPending); 
   }
 
 }

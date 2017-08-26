@@ -1,11 +1,8 @@
 <!--<h3 *ngIf="loading$ | async">Loading</h3>-->
 
-<app-navigation [prevHadis]="hadis" [nextHadis]="hadis"></app-navigation>
-
+<app-navigation [prevHadis]="prev | async" [nextHadis]="next | async"></app-navigation>
 <article class="Article">
-  <app-hadis-list-item [hadis]="hadis" [layoutType]="'DetailItem'"></app-hadis-list-item>
-  
-  <app-hadis-text [hadis]="hadis"></app-hadis-text>
+  <app-hadis-list-item [hadis]="hadis | async" [layoutType]="'DetailItem'"></app-hadis-list-item>
+  <app-hadis-text [hadis]="hadis | async"></app-hadis-text>
 </article>
-<!-- {{ x | async | json }} -->
 <app-footer></app-footer>

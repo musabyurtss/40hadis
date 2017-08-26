@@ -13,7 +13,7 @@ export class HadisDataService {
 
     constructor(private http: Http) { }
 
-    getHadiss(skip = '0', limit = '5'): Observable<Hadis[]> {
+    getHadiss(skip = '0', limit = '5'): Observable<any> {
 
         const headerJson = new Headers({ 'Content-Type': 'application/json' });
 

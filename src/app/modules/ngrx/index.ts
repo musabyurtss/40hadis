@@ -12,11 +12,11 @@ import { createSelector } from 'reselect';
 
 import { of } from "rxjs/observable/of";
 import { Observable } from "rxjs/Observable";
-import 'rxjs/add/operator/withLatestFrom';
+// import 'rxjs/add/operator/withLatestFrom';
 import 'rxjs/add/operator/takeLast';
 
 import { HadisDataService } from './services/hadis.data.service';
-
+ 
 // state
 export type Hadis = {
     id?: string,
@@ -32,7 +32,7 @@ export type Hadis = {
 
 
 export type Filters = { pagination: { pageSize: number, currentPage: number, totalItem: number } };
-export type HadisState = { hadisler: { [id: number]: Hadis }, list: number[], filters: Filters, pending: boolean, hadis: Hadis };
+export type HadisState = { hadisler: { [id: number]: Hadis }, list: number[], filters: Filters, pending: boolean, hadis: Hadis, detailNavbar: Array<Hadis> };
 
 
 export const initialState: HadisState = {
@@ -41,18 +41,20 @@ export const initialState: HadisState = {
     hadisler: {},
     list: [],
     pending: true,
-    hadis: {}
+    hadis: {},
+    detailNavbar: []
     // }
 }
 
 // actions
 export type HadisListLoaded = { type: 'HADIS_LIST_LOADED', payload: { hadisler: { [id: number]: Hadis }, list: number[], filters: Filters, pending: boolean } }
-export type HadisDetailLoaded = { type: 'HADIS_DETAIL_LOADED', payload: { hadis: Hadis, pending: boolean } }
+export type Load = { type: 'LOAD', payload: { pending: boolean } }
+export type HadisDetailLoaded = { type: 'HADIS_DETAIL_LOADED', payload: { hadis: Hadis, detailNavbar: Array<Hadis>, pending: boolean } }
 
 export type HadisListExtend = { type: 'HADIS_LIST_EXTEND', payload: { pending: boolean } }
-export type HadisListExtended = { type: 'HADIS_LIST_EXTENDED', payload: { hadisler: { [id: number]: Hadis }, list: number[], filters: Filters } }
+export type HadisListExtended = { type: 'HADIS_LIST_EXTENDED', payload: { hadisler: { [id: number]: Hadis }, list: number[], filters: Filters, pending: boolean } }
 
-type Action = RouterAction<HadisState> | HadisListLoaded | HadisDetailLoaded | HadisListExtend | HadisListExtended;
+type Action = RouterAction<HadisState> | Load | HadisListLoaded | HadisDetailLoaded | HadisListExtend | HadisListExtended;
 
 // reducer
 export function hadisAppReducer(state = initialState, action: Action): HadisState {
@@ -63,14 +65,18 @@ export function hadisAppReducer(state = initialState, action: Action): HadisStat
         case 'HADIS_DETAIL_LOADED': {
             return { ...state, ...action.payload }
         }
+        case 'LOAD': {
+            return { ...state, ...action.payload }
+        }
         case 'HADIS_LIST_EXTEND': {
+            state.pending = action.payload.pending
             return state;
         }
         case 'HADIS_LIST_EXTENDED': {
 
             const hadisler = Object.assign({}, state.hadisler, action.payload.hadisler);
             const list = state.list.concat(action.payload.list);
-            const nstate = { hadisler, list }
+            const nstate = { hadisler, list, filters: action.payload.filters, pending: action.payload.pending }
 
             return { ...state, ...nstate }
         }
@@ -87,7 +93,15 @@ export const getHadisCollection = createSelector(getHadisItems, getHadisIds, (ha
 
 
 export const getHadisItem = createSelector(getHadisState, (state: HadisState) => state.hadis)
+export const getPending = createSelector(getHadisState, (state: HadisState) => state.pending)
+export const getDetail = createSelector(getHadisState, (state: HadisState) => {
+    return { navbar: state.detailNavbar, hadis: state.hadis}
+})
 
+export const getPrev = createSelector(getHadisState, (state: HadisState) => state.detailNavbar[0] ? state.detailNavbar[0] : null)
+export const getNext = createSelector(getHadisState, (state: HadisState) => state.detailNavbar[2] ? state.detailNavbar[2] : null)
+
+import 'rxjs/add/observable/combineLatest';
 
 // Effects
 
@@ -95,7 +109,7 @@ export const getHadisItem = createSelector(getHadisState, (state: HadisState) =>
 export class HadisEffects {
 
     @Effect() navToHadisList = this.handleNavigation('hadisler', (r: ActivatedRouteSnapshot, state: State) => {
-
+        this.store.dispatch({ type: 'LOAD', payload: { pending: true } })
         // Latest state refetch from the store when the browser backbutton is clicked.
         if (state.hadis.list.length !== 0) {
             const hadisler = state.hadis.hadisler;
@@ -117,16 +131,17 @@ export class HadisEffects {
     })
 
     @Effect() navToHadisDetail = this.handleNavigation('hadis/:id', (r: ActivatedRouteSnapshot, state: State) => {
-
+        this.store.dispatch({ type: 'LOAD', payload: { pending: true } })
+        
         const id = +r.paramMap.get('id');
 
-        // if (!state.hadis.hadis && !(+state.hadis.hadis.id !== id))
-        return this.hadisService.getHadisById(id)
-            .map((hadis) => {
-                return { type: 'HADIS_DETAIL_LOADED', payload: { hadis: hadis, pending: false } }
-            })
-        // else { return Observable.of({ type: 'HADIS_DETAIL_LOADED', payload: { hadis: state.hadis.hadis, pending: false } }) }
-
+        const skip = ((id-2) >= 0) ? id-2 : 1 
+        const navbar = this.hadisService.getHadiss((skip).toString(), "3").map((res) => res.list.map((id) => res.hadisArr[id])).toPromise();
+        const detail = this.hadisService.getHadisById(id).map((hadis) => hadis).toPromise();
+            
+        return Observable.combineLatest(navbar, detail, (n, d)=> {
+            return { type: 'HADIS_DETAIL_LOADED', payload: { hadis: d, detailNavbar: n, pending: false }}
+        })
     })
 
     // Sayfalama icin
@@ -155,8 +170,10 @@ export class HadisEffects {
         const nav = this.actions.ofType(ROUTER_NAVIGATION).
             map(firstSegment).
             filter(s => s.routeConfig.path === segment);
-
-        return nav.withLatestFrom(this.store).switchMap(a => callback(a[0], a[1])).catch(e => {
+            
+        return nav.withLatestFrom(this.store).switchMap(a => (
+            callback(a[0], a[1])
+        )).catch(e => {
             console.log('Network error', e);
             return of();
         });

@@ -324,3 +324,8 @@
     }
   }
 }
+
+
+.hide {
+  display: none;
+}
