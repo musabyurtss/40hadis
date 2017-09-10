@@ -24,7 +24,7 @@
   }
 }
 
-.overlay {
+ .overlay {
   position: fixed;
   top: 0;
   bottom: 0;
@@ -34,7 +34,7 @@
   z-index: 99999;
 }
 
-
+/*
 .cssload-container{
   position: fixed;
   top: 0;
@@ -124,4 +124,61 @@
 	100% {
 		-moz-transform: rotate(360deg);
 	}
+} */
+
+
+
+:root {
+  --size: 5em;
+  --shadowcolor: #bbb;
+}
+
+.Loader {
+  width: var(--size);
+  height: var(--size);
+  line-height: var(--size);
+  text-align: center;
+  border-radius: var(--size);
+  background: #fff;
+  
+  animation-name: loader;
+  animation-duration: .75s;
+  animation-timing-function: linear;
+  animation-iteration-count: infinite;
+
+  display: none;
+  &._Active {
+	  display: block;
+  }
+}
+
+@keyframes loader {
+ /* or use transform: rotate(X(deg|turn|...)) */
+  
+  25% {
+    box-shadow: calc(var(--size) * .05) 0 calc(var(--size) * .075) .015rem var(--shadowcolor);
+	}
+  50% {
+    box-shadow: 0 calc(var(--size) * .05) calc(var(--size) * .075) .015rem var(--shadowcolor);
+	}
+  75% {
+    box-shadow: calc(var(--size) * -.05) 0 calc(var(--size) * .075) .015rem var(--shadowcolor);
+	}
+	0%,100% {
+    box-shadow: 0 calc(var(--size) * -.05) calc(var(--size) * .075) .015rem var(--shadowcolor);
+	}
+}
+
+
+
+body {
+  background-color: #eee;
+  font-size: 16px;
+}
+
+.Loader {
+  position: absolute;
+  top: 50%;left:50%;
+  z-index: 999999;
+  transform: translatex(-50%) translatey(-50%);
 }

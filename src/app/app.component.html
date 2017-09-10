@@ -6,10 +6,13 @@
 
 <section class="Page">
   <main class="_Layout ">
+    <!-- <router-outlet></router-outlet> -->
     <router-outlet [class.overlay]="pending | async"></router-outlet>
   </main>
 </section>
 
-<div [class.cssload-container]="pending | async">
+<!-- <div [class.cssload-container]="pending | async">
     <div [class.cssload-whirlpool]="pending | async"></div>
-  </div>
+  </div> -->
+
+  <div class="Loader" [class._Active]="pending | async"></div>

@@ -8,8 +8,8 @@ import 'rxjs/add/operator/catch';
 @Injectable()
 export class HadisDataService {
 
-    private API_ROOT: String = 'http://localhost:3007';
-    // private API_ROOT: String = 'https://safe-scrubland-70496.herokuapp.com';
+    // private API_ROOT: String = 'http://localhost:3007';
+    private API_ROOT: String = 'https://safe-scrubland-70496.herokuapp.com';
 
     constructor(private http: Http) { }
 

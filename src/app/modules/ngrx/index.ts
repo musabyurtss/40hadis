@@ -111,13 +111,13 @@ export class HadisEffects {
     @Effect() navToHadisList = this.handleNavigation('hadisler', (r: ActivatedRouteSnapshot, state: State) => {
         this.store.dispatch({ type: 'LOAD', payload: { pending: true } })
         // Latest state refetch from the store when the browser backbutton is clicked.
-        if (state.hadis.list.length !== 0) {
-            const hadisler = state.hadis.hadisler;
-            const list = state.hadis.list;
-            const filters = state.hadis.filters;
-            return Observable.of({ type: 'HADIS_LIST_LOADED', payload: { hadisler, list, filters, pending: false } })
+        // if (state.hadis.list.length !== 0) {
+        //     const hadisler = state.hadis.hadisler;
+        //     const list = state.hadis.list;
+        //     const filters = state.hadis.filters;
+        //     return Observable.of({ type: 'HADIS_LIST_LOADED', payload: { hadisler, list, filters, pending: false } })
 
-        } else {
+        // } else {
             // initialize for first loading.
             const filters = createFilters({ pageSize: r.data.pageSize, currentPage: r.data.currentPage });
             return this.hadisService.getHadisByFilters(filters)
@@ -126,7 +126,7 @@ export class HadisEffects {
                     const list = res.list;
                     return { type: 'HADIS_LIST_LOADED', payload: { hadisler, list, filters, pending: false } }
                 })
-        }
+        // }
 
     })
 
