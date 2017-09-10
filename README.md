@@ -2,8 +2,8 @@
  - Amaç uygulamayı state yönetimi ile centralize edebilmek.
  - State management için redux implementasyonu  [Ngrx](https://github.com/ngrx) kullanıldı.
  - Componentler dumb component/container component olarak gruplandı.
- * Basit Master/Detail arayüzü.
- * Uygulama [demo](https://chauffer-mule-17011.netlify.com) su
+ - Basit Master/Detail arayüzü.
+ - Uygulama [demo](https://chauffer-mule-17011.netlify.com) su
 
    ![](https://github.com/musabyurtss/40hadis/blob/master/40hadis.gif)
 
