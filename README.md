@@ -1,10 +1,11 @@
 # Basit Angular 2/4.x side project (+ngrx)  [demo](https://chauffer-mule-17011.netlify.com)
- - Amaç uygulamayı state yönetim araçları ile centralize etmek.
- - Uygulamada state management için redux implementasyonu  [Ngrx](https://github.com/ngrx) kullanıldı.
+ * Amaç uygulamayı state yönetimi ile centralize edebilmek.
+ * State management için redux implementasyonu  [Ngrx](https://github.com/ngrx) kullanıldı.
+ - Componentler dumb component/container component olarak gruplandı.
  - Basit Master/Detail arayüzü.
- - Uygulamayı denemek için [demo](https://chauffer-mule-17011.netlify.com)
+ - Uygulama [demo](https://chauffer-mule-17011.netlify.com) su
 
-   ![](https://bitbucket.org/mimooo/kirkhadisv1/src/486ac10903c572c01dc79465884c41c588e0dc37/40hadis.gif)
+   ![](https://github.com/musabyurtss/40hadis/blob/master/40hadis.gif)
 
 
 ## Localde çalıştırmak için
