@@ -4,6 +4,9 @@
  - Basit Master/Detail arayüzü.
  - Uygulamayı denemek için [demo](https://chauffer-mule-17011.netlify.com)
 
+   ![](https://bitbucket.org/mimooo/kirkhadisv1/src/486ac10903c572c01dc79465884c41c588e0dc37/40hadis.gif)
+
+
 ## Localde çalıştırmak için
 * `npm i && npm start`
 
