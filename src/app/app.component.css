@@ -129,48 +129,62 @@
 
 
 :root {
-  --size: 5em;
+  --size: 4.5em;
   --shadowcolor: #bbb;
 }
 
 .Loader {
-  width: var(--size);
-  height: var(--size);
-  line-height: var(--size);
-  text-align: center;
-  border-radius: var(--size);
-  background: #fff;
-  
-  animation-name: loader;
-  animation-duration: .75s;
-  animation-timing-function: linear;
-  animation-iteration-count: infinite;
-
+  background-color: rgba(251, 251, 251, 0.95);
+  width: 100%;
+  height: 100%;
+  position: fixed;
+  top: 0;left: 0;
+  z-index: 9999;
   display: none;
   &._Active {
-	  display: block;
+    display: block;
+  }
+  & > ._Spinner {
+  position: absolute;
+  top: 50%;left:50%;
+  transform: translatex(-50%) translatey(-50%);
+
+    width: var(--size);
+    height: var(--size);
+    line-height: var(--size);
+    text-align: center;
+    border-radius: var(--size);
+    background: #fff;
+    
+    animation-name: loader;
+    animation-duration: .75s;
+    animation-timing-function: linear;
+    animation-iteration-count: infinite;
+  
+   
   }
 }
 
+
 @keyframes loader {
  /* or use transform: rotate(X(deg|turn|...)) */
-  
-  25% {
-    box-shadow: calc(var(--size) * .05) 0 calc(var(--size) * .075) .015rem var(--shadowcolor);
-	}
-  50% {
-    box-shadow: 0 calc(var(--size) * .05) calc(var(--size) * .075) .015rem var(--shadowcolor);
-	}
-  75% {
-    box-shadow: calc(var(--size) * -.05) 0 calc(var(--size) * .075) .015rem var(--shadowcolor);
-	}
-	0%,100% {
-    box-shadow: 0 calc(var(--size) * -.05) calc(var(--size) * .075) .015rem var(--shadowcolor);
-	}
+
+25% {
+  box-shadow: calc(var(--size) * .05) 0 calc(var(--size) * .075) .015rem var(--shadowcolor);
+}
+50% {
+  box-shadow: 0 calc(var(--size) * .05) calc(var(--size) * .075) .015rem var(--shadowcolor);
+}
+75% {
+  box-shadow: calc(var(--size) * -.05) 0 calc(var(--size) * .075) .015rem var(--shadowcolor);
+}
+0%,100% {
+  box-shadow: 0 calc(var(--size) * -.05) calc(var(--size) * .075) .015rem var(--shadowcolor);
+}
 }
 
 
-
+/* 
 body {
   background-color: #eee;
   font-size: 16px;
@@ -181,4 +195,4 @@ body {
   top: 50%;left:50%;
   z-index: 999999;
   transform: translatex(-50%) translatey(-50%);
-}
+} */
