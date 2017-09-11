@@ -11,6 +11,11 @@
 ## Localde çalıştırmak için
 * `npm i && npm start`
 
+## Yapilacaklar
+  - [ ] Universal app a çevir (SEO friendly)
+  - [ ] Lazy loading
+  - [ ] Aot denemesi yap
+
 
 ## `/src` dosya yapısı
  
