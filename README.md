@@ -1,23 +1,18 @@
-# Basit Angular 2/4.x side project (+ngrx)  [demo](https://chauffer-mule-17011.netlify.com)
- - Angularda state management denemesi.
- - State management için redux implementasyonu  [Ngrx](https://github.com/ngrx) kullanıldı.
- - Componentler dumb component/container component olarak gruplandı.
- - Basit Master/Detail arayüzü.
- - Uygulama [demo](https://chauffer-mule-17011.netlify.com) su
+#  Angular 2/4.x side project (+ngrx)  [demo](https://chauffer-mule-17011.netlify.com)
 
    ![](https://github.com/musabyurtss/40hadis/blob/master/40hadis.gif)
 
 
-## Localde çalıştırmak için
+## Run
 * `npm i && npm start`
 
 ## Yapilacaklar
-  - [ ] Universal app a çevir (SEO friendly)
+  - [ ] Universal app  (SEO friendly)
   - [ ] Lazy loading
-  - [ ] Aot denemesi yap
+  - [ ] Aot 
 
 
-## `/src` dosya yapısı
+## Dumb/Container Components 
  
 ```
 |   favicon.ico
