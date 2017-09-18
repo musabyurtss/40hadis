@@ -6,7 +6,7 @@
 ## Run
 * `npm i && npm start`
 
-## Yapilacaklar
+## Todos
   - [ ] Universal app  (SEO friendly)
   - [ ] Lazy loading
   - [ ] Aot 
